@@ -37,7 +37,14 @@
   <p class="coll__count"><span data-filter-count>{{ collection.products_count }}</span> products</p>
 
   <div class="grid" data-filter-grid>
-    {%- for p in collection.products -%}{%- render 'product-card', card_product: p -%}{%- endfor -%}
+    {%- comment -%} With the default sort, products that have photos lead; any chosen sort is kept as is. {%- endcomment -%}
+    {%- assign sort_now = collection.sort_by | default: collection.default_sort_by -%}
+    {%- if sort_now == 'manual' or sort_now == blank -%}
+      {%- for p in collection.products -%}{%- if p.featured_image -%}{%- render 'product-card', card_product: p -%}{%- endif -%}{%- endfor -%}
+      {%- for p in collection.products -%}{%- unless p.featured_image -%}{%- render 'product-card', card_product: p -%}{%- endunless -%}{%- endfor -%}
+    {%- else -%}
+      {%- for p in collection.products -%}{%- render 'product-card', card_product: p -%}{%- endfor -%}
+    {%- endif -%}
   </div>
   <p class="empty" data-filter-empty hidden>No products of this type in this collection.</p>
 

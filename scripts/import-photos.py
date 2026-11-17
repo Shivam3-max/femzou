@@ -52,6 +52,27 @@ GALLERY = {
         "FemZou Vanilla Body Lotion Studio Shot", "Vanilla Lotion with Cream Swirls and Pearls", "Vanilla Extract Botanical Lotion Ad",
         "Vanilla Hydrating Lotion Advertisement", "Vanilla Hydration Spa Lotion Ad",
     ],
+    "glutathione-foaming-facewash": [
+        "FemZou Glutathione Foaming Facewash", "FEMZOU Glutathione Foaming Facewash (1)",
+        "Skincare Box Back Panel Display", "Ingredients Label Skincare Bottle",
+    ],
+    "hydrating-face-cleanser-250ml": [
+        "FEMZOU Hydrating Face Cleanser Bottle", "Spa Glow with Hydrating Cleanser", "Key Benefits Infographic Poster",
+        "How to Use Facial Cleanser", "White Pump Bottle Product Shot",
+    ],
+    "hair-shampoo-oceandermx": [
+        "FEMZOU Hair Cleanser Bottle", "Natural Ingredients Hair Cleanser Infographic", "Botanical Haircare Key Benefits Infographic",
+        "FemZou Hair Cleanser Guide", "White Back-Label Hair Cleanser Bottle",
+    ],
+    "peach-body-lotion": [
+        "Peach Hydrating Body Lotion Bottle", "Fresh Peach Shower Glow", "Peach-Infused Hydrating Softness",
+        "Peachy Hydration Product Splash Ad", "Peach Lotion Spa Bathroom Ad", "Femzou Peach Lotion Back Label",
+    ],
+    "rose-mist": [
+        "FemZou Rose Mist Bottle", "Rose Floral Skincare Spray Bottle", "FemZou Rose Mist Promotional Poster",
+        "Pure Steam Distilled Rose Mist", "Rose Mist Benefits Infographic", "FemZou Rose Mist for Every Skin Type",
+        "Rose Mist Skincare Guide", "Pure Rose Ingredient Infographic",
+    ],
 }
 
 # left out on purpose (see docs/SEEDED-DATA.md)
@@ -60,6 +81,10 @@ SKIPPED = {
     "FemZou Shampoo Brightening Care": "shows skin actives that are not in a shampoo",
     "Key Skincare Ingredients Guide": "lists ingredients that are not on the De-Tan label",
     "Gleaming Hair Conditioner with Cream Swirl (1)": "duplicate",
+    "FEMZOU Glutathione Foaming Facewash Infographic": "names lemon oil and licorice, which are not on the label",
+    "How to Use Facial Cleanser (1)": "duplicate",
+    "Natural Ingredients Hair Cleanser Infographic (1)": "duplicate",
+    "FemZou Rose Mist Refresh Moment": "near-duplicate of the promotional poster",
 }
 
 

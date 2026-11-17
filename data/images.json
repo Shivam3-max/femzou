@@ -210,5 +210,127 @@
       "file": "05.jpg",
       "alt": "Vanilla Hydration Spa Lotion Ad"
     }
+  ],
+  "glutathione-foaming-facewash": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Glutathione Foaming Facewash"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "FemZou Glutathione Foaming Facewash"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Skincare Box Back Panel Display"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "Ingredients Label Skincare Bottle"
+    }
+  ],
+  "hydrating-face-cleanser-250ml": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Hydrating Face Cleanser Bottle"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Spa Glow with Hydrating Cleanser"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Key Benefits Infographic Poster"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "How to Use Facial Cleanser"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "White Pump Bottle Product Shot"
+    }
+  ],
+  "hair-shampoo-oceandermx": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Hair Cleanser Bottle"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Natural Ingredients Hair Cleanser Infographic"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Botanical Haircare Key Benefits Infographic"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "FemZou Hair Cleanser Guide"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "White Back-Label Hair Cleanser Bottle"
+    }
+  ],
+  "peach-body-lotion": [
+    {
+      "file": "01.jpg",
+      "alt": "Peach Hydrating Body Lotion Bottle"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Fresh Peach Shower Glow"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Peach-Infused Hydrating Softness"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "Peachy Hydration Product Splash Ad"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "Peach Lotion Spa Bathroom Ad"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "FemZou Peach Lotion Back Label"
+    }
+  ],
+  "rose-mist": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Rose Mist Bottle"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Rose Floral Skincare Spray Bottle"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "FemZou Rose Mist Promotional Poster"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "Pure Steam Distilled Rose Mist"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "Rose Mist Benefits Infographic"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "FemZou Rose Mist for Every Skin Type"
+    },
+    {
+      "file": "07.jpg",
+      "alt": "Rose Mist Skincare Guide"
+    },
+    {
+      "file": "08.jpg",
+      "alt": "Pure Rose Ingredient Infographic"
+    }
   ]
 }
