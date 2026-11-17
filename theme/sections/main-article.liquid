@@ -1,0 +1,11 @@
+<article class="wrap post">
+  <div class="crumbs crumbs--flush"><a href="{{ blog.url }}">{{ blog.title }}</a></div>
+  <h1 class="post__h">{{ article.title }}</h1>
+  <p class="art__meta">{{ article.metafields.femzou.read_minutes.value | default: 3 }} min read</p>
+  {%- render 'media-slot', image: article.image, label: 'Article image', spec: '1600 × 900', class_name: 'slot--post', alt_text: article.title, widths_attr: '100vw' -%}
+  <div class="rte post__body">{{ article.content }}</div>
+</article>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

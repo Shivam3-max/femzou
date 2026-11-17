@@ -1,0 +1,28 @@
+<section class="wrap prose">
+  <h1 class="coll__h">{{ page.title }}</h1>
+  <div class="acc">
+    {%- for block in section.blocks -%}
+      <details {{ block.shopify_attributes }}><summary>{{ block.settings.q }} {% render 'icon', name: 'chev' %}</summary><div class="acc__b rte"><p>{{ block.settings.a }}</p></div></details>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "blocks": [
+    { "type": "faq", "name": "Question", "settings": [
+      { "type": "text", "id": "q", "label": "Question", "default": "Question" },
+      { "type": "textarea", "id": "a", "label": "Answer" }
+    ] }
+  ],
+  "presets": [ { "name": "FAQ", "blocks": [
+    { "type": "faq", "settings": { "q": "How long does delivery take?", "a": "Orders are processed within 1 to 3 business days. Delivery usually takes 5 to 10 business days from dispatch." } },
+    { "type": "faq", "settings": { "q": "Do you offer cash on delivery?", "a": "Yes, cash on delivery is available." } },
+    { "type": "faq", "settings": { "q": "Is shipping free?", "a": "Shipping is free on orders above ₹499." } },
+    { "type": "faq", "settings": { "q": "Can I cancel my order?", "a": "Orders can be cancelled before they have shipped. Contact us as soon as possible with your order details." } },
+    { "type": "faq", "settings": { "q": "Can I return a product?", "a": "Opened products cannot be returned for hygiene reasons. If an item arrives damaged, defective or incorrect, tell us within 7 days of delivery with photos or a video." } },
+    { "type": "faq", "settings": { "q": "Are FemZou products tested on animals?", "a": "No. FemZou is cruelty free." } }
+  ] } ]
+}
+{% endschema %}

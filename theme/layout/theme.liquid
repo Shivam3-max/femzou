@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="{{ canonical_url }}">
+  {%- assign full_title = shop.name -%}
+  {%- if page_title -%}{%- assign full_title = page_title | append: ' | ' | append: shop.name -%}{%- endif -%}
+  <title>{{ full_title }}</title>
+  {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  <style>:root{--img-ratio:{{ settings.product_image_ratio | default: '1 / 1' }}}</style>
+  <script>window.FZ={moneySym:'₹',freeShip:{{ settings.free_shipping_rupees | default: 499 | times: 100 }},routes:{cart:'{{ routes.cart_url }}',add:'{{ routes.cart_add_url }}.js',change:'{{ routes.cart_change_url }}.js',suggest:'{{ routes.predictive_search_url }}.json'}};</script>
+  {{ 'theme.js' | asset_url | script_tag }}
+  {{ content_for_header }}
+</head>
+<body class="tpl-{{ template.name }}">
+  <a class="skip" href="#main">Skip to content</a>
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
+  <main id="main">{{ content_for_layout }}</main>
+  {% section 'footer' %}
+  {% render 'cart-drawer' %}
+  {% render 'search-overlay' %}
+  <button class="totop" type="button" data-totop aria-label="Back to top" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6.500 14.500 5.500-5.500 5.500 5.500"/></svg></button>
+  <div class="scrim" data-scrim hidden></div>
+</body>
+</html>

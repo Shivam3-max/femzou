@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+*.log
+
+# internal launch notes (prices, claims, image issues): keep off the public repo
+docs/SEEDED-DATA.md

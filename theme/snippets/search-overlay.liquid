@@ -1,0 +1,20 @@
+<div class="sov" data-panel="search" role="dialog" aria-label="Search" hidden>
+  <div class="wrap">
+    <form class="sov__form" action="{{ routes.search_url }}" method="get" role="search">
+      {% render 'icon', name: 'search' %}
+      <input type="search" name="q" placeholder="Search products, ingredients or concerns" aria-label="Search" autocomplete="off" data-search-input>
+      <input type="hidden" name="type" value="product">
+      <button class="iconbtn" type="button" data-close aria-label="Close search">{% render 'icon', name: 'close' %}</button>
+    </form>
+    <div class="sov__body" data-search-results>
+      <p class="sov__label">Popular searches</p>
+      <div class="chips">
+        <a class="chip" href="{{ routes.search_url }}?q=Vitamin+C&type=product">Vitamin C</a>
+        <a class="chip" href="{{ routes.search_url }}?q=OceanDerMX&type=product">OceanDerMX</a>
+        <a class="chip" href="{{ routes.search_url }}?q=Sunscreen&type=product">Sunscreen</a>
+        <a class="chip" href="{{ routes.search_url }}?q=Onion&type=product">Onion</a>
+        <a class="chip" href="{{ routes.search_url }}?q=Lotion&type=product">Body lotion</a>
+      </div>
+    </div>
+  </div>
+</div>

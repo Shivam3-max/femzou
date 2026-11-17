@@ -1,0 +1,24 @@
+<section class="sec">
+  <div class="wrap">
+    <div class="head head--split">
+      <div>
+        <h2 class="head__h">{{ section.settings.heading }}</h2>
+        {%- if section.settings.sub != blank -%}<p class="head__sub">{{ section.settings.sub }}</p>{%- endif -%}
+      </div>
+      <a class="textlink" href="{{ section.settings.collection.url }}">View all</a>
+    </div>
+    {%- render 'product-rail', rail_products: section.settings.collection.products, rail_limit: 10, skip_handle: '' -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product rail",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Featured" },
+    { "type": "text", "id": "sub", "label": "Subheading" },
+    { "type": "collection", "id": "collection", "label": "Collection" }
+  ],
+  "presets": [ { "name": "Product rail" } ]
+}
+{% endschema %}

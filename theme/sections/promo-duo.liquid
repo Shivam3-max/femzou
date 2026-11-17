@@ -1,0 +1,25 @@
+<section class="sec sec--tight">
+  <div class="wrap duo">
+    {%- for block in section.blocks -%}
+      <a class="duo__item" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+        {%- capture lbl -%}Promo banner {{ forloop.index }}{%- endcapture -%}
+        {%- render 'media-slot', image: block.settings.image, label: lbl, spec: '1200 × 600', class_name: 'slot--promo', alt_text: block.settings.alt, widths_attr: '(min-width: 760px) 50vw, 100vw' -%}
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promo banners",
+  "max_blocks": 2,
+  "blocks": [
+    { "type": "promo", "name": "Banner", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Artwork", "info": "1200 × 600" },
+      { "type": "text", "id": "alt", "label": "Image description" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ] }
+  ],
+  "presets": [ { "name": "Promo banners", "blocks": [ { "type": "promo" }, { "type": "promo" } ] } ]
+}
+{% endschema %}

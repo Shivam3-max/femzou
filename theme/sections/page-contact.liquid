@@ -1,0 +1,22 @@
+<section class="wrap contact">
+  <div>
+    <h1 class="coll__h">{{ page.title }}</h1>
+    <p class="contact__lead">{{ section.settings.text }}</p>
+    <ul class="ftr__contact ftr__contact--page">
+      <li>{% render 'icon', name: 'phone' %}<a href="tel:{{ settings.contact_phone | remove: ' ' }}">{{ settings.contact_phone }}</a></li>
+      <li>{% render 'icon', name: 'mail' %}<a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
+      <li>{% render 'icon', name: 'pin' %}<span>{{ settings.contact_address }}</span></li>
+    </ul>
+  </div>
+  {%- form 'contact', class: 'cform' -%}
+    <label>Name<input type="text" name="contact[name]" required autocomplete="name"></label>
+    <label>Email<input type="email" name="contact[email]" required autocomplete="email"></label>
+    <label>Phone<input type="tel" name="contact[phone]" autocomplete="tel"></label>
+    <label>Message<textarea name="contact[body]" rows="5" required></textarea></label>
+    <button class="btn" type="submit">Send message</button>
+  {%- endform -%}
+</section>
+
+{% schema %}
+{ "name": "Contact", "settings": [ { "type": "textarea", "id": "text", "label": "Intro", "default": "Questions about a product or an order? Write to us and we will get back to you." } ] }
+{% endschema %}

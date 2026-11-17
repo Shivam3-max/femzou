@@ -1,0 +1,39 @@
+<footer class="ftr">
+  <div class="wrap ftr__top">
+    <div class="ftr__brand">
+      <a class="brand brand--foot" href="{{ routes.root_url }}">{% render 'brand-mark' %}</a>
+      <p class="ftr__tag">{{ section.settings.tagline }}</p>
+      <ul class="ftr__contact">
+        <li>{% render 'icon', name: 'phone' %}<a href="tel:{{ settings.contact_phone | remove: ' ' }}">{{ settings.contact_phone }}</a></li>
+        <li>{% render 'icon', name: 'mail' %}<a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
+        <li>{% render 'icon', name: 'pin' %}<span>{{ settings.contact_address }}</span></li>
+      </ul>
+    </div>
+    {%- assign menus = 'footer-shop,footer-help,footer-about' | split: ',' -%}
+    {%- for h in menus -%}
+      {%- assign m = linklists[h] -%}
+      <nav class="ftr__col" aria-label="{{ m.title }}">
+        <h2>{{ m.title }}</h2>
+        <ul>{%- for l in m.links -%}<li><a href="{{ l.url }}">{{ l.title }}</a></li>{%- endfor -%}</ul>
+      </nav>
+    {%- endfor -%}
+  </div>
+  <div class="wrap ftr__base">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.legal }}</p>
+    <div class="ftr__social">
+      {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" rel="noopener">Instagram</a>{%- endif -%}
+      {%- if settings.social_facebook != blank -%}<a href="{{ settings.social_facebook }}" rel="noopener">Facebook</a>{%- endif -%}
+      {%- if settings.social_threads != blank -%}<a href="{{ settings.social_threads }}" rel="noopener">Threads</a>{%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Beauty. Science. Confidence." },
+    { "type": "text", "id": "legal", "label": "Legal line", "default": "Marketed by MAC Vision Biotech." }
+  ]
+}
+{% endschema %}

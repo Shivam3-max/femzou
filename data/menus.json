@@ -1,0 +1,21 @@
+{
+  "footer-shop": { "title": "Shop", "links": [
+    { "title": "Shop all", "url": "/collections/all" },
+    { "title": "Face Care", "url": "/collections/face-care" },
+    { "title": "Hair Care", "url": "/collections/hair-care" },
+    { "title": "Body & Hygiene", "url": "/collections/body-hygiene" },
+    { "title": "Professional", "url": "/collections/professional" }
+  ] },
+  "footer-help": { "title": "Help", "links": [
+    { "title": "Contact us", "url": "/pages/contact" },
+    { "title": "FAQs", "url": "/pages/faq" },
+    { "title": "Shipping policy", "url": "/pages/shipping-policy" },
+    { "title": "Refund and cancellation", "url": "/pages/refund-policy" }
+  ] },
+  "footer-about": { "title": "FemZou", "links": [
+    { "title": "About us", "url": "/pages/about" },
+    { "title": "Skin Notes", "url": "/blogs/skin-notes" },
+    { "title": "Privacy policy", "url": "/pages/privacy-policy" },
+    { "title": "Terms and conditions", "url": "/pages/terms" }
+  ] }
+}

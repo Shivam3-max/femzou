@@ -1,0 +1,8 @@
+<section class="wrap coll">
+  <header class="coll__head"><h1 class="coll__h">{{ blog.title }}</h1><div class="coll__d"><p>{{ section.settings.text }}</p></div></header>
+  <div class="arts">{%- for a in blog.articles -%}{%- render 'article-card', a: a -%}{%- endfor -%}</div>
+</section>
+
+{% schema %}
+{ "name": "Blog", "settings": [ { "type": "text", "id": "text", "label": "Intro", "default": "Simple guidance for skin, hair and everyday care." } ] }
+{% endschema %}

@@ -1,0 +1,35 @@
+<section class="sec sec--tight" data-circles>
+  <div class="wrap">
+    <nav class="circles" data-drag aria-label="Shop by category">
+      {%- for block in section.blocks -%}
+        {%- assign c = block.settings.collection -%}
+        <a class="circle" href="{{ c.url }}" {{ block.shopify_attributes }}>
+          {%- render 'media-slot', image: block.settings.image, label: '', class_name: 'slot--circle', alt_text: c.title, widths_attr: '160px' -%}
+          <span>{{ block.settings.label | default: c.title }}</span>
+        </a>
+      {%- endfor -%}
+    </nav>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Category circles",
+  "max_blocks": 8,
+  "blocks": [
+    { "type": "cat", "name": "Category", "settings": [
+      { "type": "collection", "id": "collection", "label": "Collection" },
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "image_picker", "id": "image", "label": "Image", "info": "500 × 500" }
+    ] }
+  ],
+  "presets": [ { "name": "Category circles", "blocks": [
+    { "type": "cat", "settings": { "collection": "face-care" } },
+    { "type": "cat", "settings": { "collection": "hair-care" } },
+    { "type": "cat", "settings": { "collection": "body-hygiene" } },
+    { "type": "cat", "settings": { "collection": "sun-care", "label": "Sun Care" } },
+    { "type": "cat", "settings": { "collection": "body-lotions", "label": "Body Lotions" } },
+    { "type": "cat", "settings": { "collection": "professional", "label": "Professional" } }
+  ] } ]
+}
+{% endschema %}

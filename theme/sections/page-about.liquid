@@ -1,0 +1,39 @@
+<section class="abouthero">
+  <div class="wrap abouthero__in">
+    <p class="eyebrow">About FemZou</p>
+    <h1 class="abouthero__h">{{ section.settings.heading }}</h1>
+    <p class="abouthero__p">{{ section.settings.text }}</p>
+  </div>
+</section>
+<section class="wrap">
+  {%- render 'media-slot', image: section.settings.image, label: 'About banner', spec: '1920 × 720', class_name: 'slot--about', alt_text: section.settings.heading, widths_attr: '100vw' -%}
+</section>
+<section class="sec">
+  <div class="wrap trio">
+    {%- for block in section.blocks -%}
+      <div class="trio__i" {{ block.shopify_attributes }}><h2>{{ block.settings.title }}</h2><p>{{ block.settings.text }}</p></div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "We add perfection to your beauty." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "FemZou is dedicated to premium skin and hair care. Every formula is thoughtfully crafted to nourish, protect and enhance your natural beauty, with safe, skin-friendly ingredients and packaging that keeps them fresh." },
+    { "type": "image_picker", "id": "image", "label": "Banner", "info": "1920 × 720" }
+  ],
+  "blocks": [
+    { "type": "item", "name": "Column", "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] }
+  ],
+  "presets": [ { "name": "About", "blocks": [
+    { "type": "item", "settings": { "title": "Our mission", "text": "To restore and maintain skin and hair integrity through high-quality, innovative skin, hair and personal care." } },
+    { "type": "item", "settings": { "title": "Our vision", "text": "To be recognised for innovative, research-based quality products in dermatology and cosmeceuticals." } },
+    { "type": "item", "settings": { "title": "Our values", "text": "Innovation, quality, integrity and excellence in everything we make." } }
+  ] } ]
+}
+{% endschema %}

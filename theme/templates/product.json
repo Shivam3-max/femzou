@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "faq": {
+      "type": "product-faq"
+    },
+    "related": {
+      "type": "product-related"
+    },
+    "trust": {
+      "type": "trust-strip",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "text": "Paraben free"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "text": "Sulphate-free cleansers"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "icon": "rabbit",
+            "text": "Cruelty free"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "icon": "flask",
+            "text": "Dermatologically tested"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "text": "Made in India"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5"
+      ]
+    },
+    "recent": {
+      "type": "recently-viewed"
+    }
+  },
+  "order": [
+    "main",
+    "faq",
+    "related",
+    "recent",
+    "trust"
+  ]
+}

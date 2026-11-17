@@ -1,0 +1,16 @@
+{%- comment -%}
+  One image position. Shows the uploaded image when there is one, otherwise a
+  labelled placeholder with crop marks.
+  Accepts: image, label, spec, class_name, alt_text, widths_attr
+{%- endcomment -%}
+<div class="slot {{ class_name }}">
+  {%- if image -%}
+    {{ image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: alt_text, sizes: widths_attr, widths: '360, 540, 720, 1080, 1600' }}
+  {%- else -%}
+    <div class="ph" role="img" aria-label="{{ label }} placeholder">
+      <svg class="ph__i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="1.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m3.5 17 5-4.6 3.4 3 3-2.5 5.6 4.6"/></svg>
+      {%- if label != blank -%}<span class="ph__l">{{ label }}</span>{%- endif -%}
+      {%- if spec != blank -%}<span class="ph__s">{{ spec }}</span>{%- endif -%}
+    </div>
+  {%- endif -%}
+</div>

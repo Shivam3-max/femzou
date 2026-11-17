@@ -1,0 +1,24 @@
+{%- comment -%}
+  Horizontal product rail. Accepts: rail_products, rail_limit, skip_handle
+  Products that already have photos lead the rail; once every product has
+  photos the original order is kept.
+{%- endcomment -%}
+{%- assign shown = 0 -%}
+<div class="rail" data-rail>
+  <div class="rail__track" data-rail-track data-drag>
+    {%- for p in rail_products -%}
+      {%- if shown < rail_limit and p.featured_image and p.handle != skip_handle -%}
+        <div class="rail__item">{%- render 'product-card', card_product: p -%}</div>
+        {%- assign shown = shown | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- for p in rail_products -%}
+      {%- if shown < rail_limit and p.featured_image == nil and p.handle != skip_handle -%}
+        <div class="rail__item">{%- render 'product-card', card_product: p -%}</div>
+        {%- assign shown = shown | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <button class="rail__btn rail__btn--l" type="button" data-rail-prev aria-label="Previous products" hidden>{% render 'icon', name: 'left' %}</button>
+  <button class="rail__btn rail__btn--r" type="button" data-rail-next aria-label="More products" hidden>{% render 'icon', name: 'right' %}</button>
+</div>

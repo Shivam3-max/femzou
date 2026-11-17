@@ -1,0 +1,373 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-slider",
+      "blocks": {
+        "banner_1": {
+          "type": "banner",
+          "settings": {}
+        },
+        "banner_2": {
+          "type": "banner",
+          "settings": {}
+        },
+        "banner_3": {
+          "type": "banner",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "banner_1",
+        "banner_2",
+        "banner_3"
+      ]
+    },
+    "circles": {
+      "type": "category-circles",
+      "blocks": {
+        "cat_1": {
+          "type": "cat",
+          "settings": {
+            "collection": "face-care"
+          }
+        },
+        "cat_2": {
+          "type": "cat",
+          "settings": {
+            "collection": "hair-care"
+          }
+        },
+        "cat_3": {
+          "type": "cat",
+          "settings": {
+            "collection": "body-hygiene"
+          }
+        },
+        "cat_4": {
+          "type": "cat",
+          "settings": {
+            "collection": "sun-care",
+            "label": "Sun Care"
+          }
+        },
+        "cat_5": {
+          "type": "cat",
+          "settings": {
+            "collection": "body-lotions",
+            "label": "Body Lotions"
+          }
+        },
+        "cat_6": {
+          "type": "cat",
+          "settings": {
+            "collection": "professional",
+            "label": "Professional"
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3",
+        "cat_4",
+        "cat_5",
+        "cat_6"
+      ]
+    },
+    "statement": {
+      "type": "brand-statement"
+    },
+    "tabs": {
+      "type": "tabbed-products",
+      "blocks": {
+        "tab_1": {
+          "type": "tab",
+          "settings": {
+            "label": "Face Care",
+            "collection": "face-care"
+          }
+        },
+        "tab_2": {
+          "type": "tab",
+          "settings": {
+            "label": "Hair Care",
+            "collection": "hair-care"
+          }
+        },
+        "tab_3": {
+          "type": "tab",
+          "settings": {
+            "label": "Body & Hygiene",
+            "collection": "body-hygiene"
+          }
+        }
+      },
+      "block_order": [
+        "tab_1",
+        "tab_2",
+        "tab_3"
+      ]
+    },
+    "promo": {
+      "type": "promo-duo",
+      "blocks": {
+        "promo_1": {
+          "type": "promo",
+          "settings": {}
+        },
+        "promo_2": {
+          "type": "promo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "promo_1",
+        "promo_2"
+      ]
+    },
+    "concerns": {
+      "type": "concern-grid",
+      "blocks": {
+        "concern_1": {
+          "type": "concern",
+          "settings": {
+            "collection": "dull-tan"
+          }
+        },
+        "concern_2": {
+          "type": "concern",
+          "settings": {
+            "collection": "acne-oily"
+          }
+        },
+        "concern_3": {
+          "type": "concern",
+          "settings": {
+            "collection": "dry-skin"
+          }
+        },
+        "concern_4": {
+          "type": "concern",
+          "settings": {
+            "collection": "sun-care"
+          }
+        },
+        "concern_5": {
+          "type": "concern",
+          "settings": {
+            "collection": "hair-fall"
+          }
+        },
+        "concern_6": {
+          "type": "concern",
+          "settings": {
+            "collection": "frizz-damage"
+          }
+        }
+      },
+      "block_order": [
+        "concern_1",
+        "concern_2",
+        "concern_3",
+        "concern_4",
+        "concern_5",
+        "concern_6"
+      ]
+    },
+    "lotions": {
+      "type": "collection-rail",
+      "settings": {
+        "heading": "The Fruit Lotions",
+        "sub": "Orange, kiwi, vanilla and peach. One soft, hydrated finish.",
+        "collection": "body-lotions"
+      }
+    },
+    "pro": {
+      "type": "feature-split",
+      "settings": {
+        "image_label": "FemZou Professional image",
+        "eyebrow": "FemZou Professional",
+        "heading": "Salon-strength care, for the chair and for home.",
+        "text": "Our professional line pairs keratin, rosemary oil and argan oil for hair that looks smoother, stronger and shinier.",
+        "button": "Explore Professional",
+        "link": "/collections/professional"
+      }
+    },
+    "ingredients": {
+      "type": "ingredient-row",
+      "blocks": {
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "OceanDerMX",
+            "text": "A marine active complex that helps hydrate, protect and restore.",
+            "query": "OceanDerMX"
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamin C",
+            "text": "Boosts radiance and evens the look of skin tone.",
+            "query": "Vitamin C"
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Glycolic & Salicylic",
+            "text": "Exfoliate the surface and help keep pores clear.",
+            "query": "Salicylic"
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Keratin",
+            "text": "Strengthens and smooths each strand.",
+            "query": "Keratin"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_1",
+        "ingredient_2",
+        "ingredient_3",
+        "ingredient_4"
+      ]
+    },
+    "oceandermx": {
+      "type": "feature-split",
+      "settings": {
+        "flip": true,
+        "image_label": "OceanDerMX image",
+        "eyebrow": "Signature active",
+        "heading": "Meet OceanDerMX.",
+        "text": "A marine active complex found across our hydrating cleansers and hair care. It helps skin and scalp hold on to moisture and stay protected.",
+        "button": "Shop OceanDerMX",
+        "link": "/search?q=OceanDerMX&type=product"
+      }
+    },
+    "trust": {
+      "type": "trust-strip",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "text": "Paraben free"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "text": "Sulphate-free cleansers"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "icon": "rabbit",
+            "text": "Cruelty free"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "icon": "flask",
+            "text": "Dermatologically tested"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "text": "Made in India"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5"
+      ]
+    },
+    "articles": {
+      "type": "article-row"
+    },
+    "news": {
+      "type": "newsletter"
+    },
+    "routine": {
+      "type": "routine-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "step": "Cleanse",
+            "product": "hydrating-face-cleanser-250ml"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "step": "Treat",
+            "product": "vitamin-c-face-serum"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "step": "Protect",
+            "product": "sunscreen-spf-50"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ]
+    },
+    "spot1": {
+      "type": "product-spotlight",
+      "settings": {
+        "product": "onion-hair-oil",
+        "eyebrow": "Hair care bestseller"
+      }
+    },
+    "spot2": {
+      "type": "product-spotlight",
+      "settings": {
+        "product": "hydrarevive-moisture-restore-lotion",
+        "eyebrow": "New: daily hydration",
+        "flip": true
+      }
+    },
+    "recent": {
+      "type": "recently-viewed"
+    }
+  },
+  "order": [
+    "hero",
+    "circles",
+    "statement",
+    "tabs",
+    "spot1",
+    "routine",
+    "concerns",
+    "spot2",
+    "promo",
+    "lotions",
+    "pro",
+    "ingredients",
+    "oceandermx",
+    "trust",
+    "recent",
+    "articles",
+    "news"
+  ]
+}

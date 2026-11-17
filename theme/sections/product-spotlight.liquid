@@ -1,0 +1,56 @@
+{%- assign p = section.settings.product -%}
+{%- if p -%}
+{%- assign fz = p.metafields.femzou -%}
+{%- assign current = p.selected_or_first_available_variant -%}
+{%- assign lead = p.images[1] | default: p.featured_image -%}
+<section class="sec spot{% if section.settings.flip %} spot--flip{% endif %}" data-spot>
+  <div class="wrap spot__in">
+    <div class="spot__media">
+      <div class="spot__stage" data-spot-stage>
+        {%- render 'media-slot', image: lead, label: 'Spotlight image', spec: '1200 × 1200', class_name: 'slot--spot', alt_text: p.title, widths_attr: '(min-width: 900px) 50vw, 100vw' -%}
+      </div>
+      {%- if p.images.size > 1 -%}
+        <div class="spot__thumbs">
+          {%- for img in p.images limit: 5 -%}
+            {%- assign big = img | image_url: width: 1400 -%}
+            <button class="spot__thumb{% if img.src == lead.src %} is-on{% endif %}" type="button" data-spot-src="{{ big }}" data-spot-alt="{{ img.alt | escape }}" aria-label="Show image {{ forloop.index }}">
+              {%- render 'media-slot', image: img, label: '', class_name: 'slot--thumb', alt_text: '', widths_attr: '72px' -%}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="spot__copy">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="spot__h">{{ p.title }}</h2>
+      <p class="spot__sub">{{ fz.subtitle.value }}</p>
+      {%- if fz.helps_with.value -%}
+        <ul class="spot__list">{%- for x in fz.helps_with.value limit: 4 -%}<li>{% render 'icon', name: 'check' %}{{ x }}</li>{%- endfor -%}</ul>
+      {%- endif -%}
+      {%- if fz.ingredients.value -%}
+        <p class="spot__ing"><span>Key ingredients</span>{%- for x in fz.ingredients.value limit: 4 -%}{{ x.n }}{%- unless forloop.last -%}, {% endunless -%}{%- endfor -%}</p>
+      {%- endif -%}
+      <div class="spot__buy">
+        {%- render 'price', target: current, large: true -%}
+        <span class="spot__size">{{ fz.size.value }}</span>
+      </div>
+      <div class="spot__cta">
+        <button class="btn" type="button" data-add="{{ current.id }}"{% unless current.available %} disabled{% endunless %}>Add to cart</button>
+        <a class="btn btn--line" href="{{ p.url }}">View product</a>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product spotlight",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "In the spotlight" },
+    { "type": "checkbox", "id": "flip", "label": "Image on the right", "default": false }
+  ],
+  "presets": [ { "name": "Product spotlight" } ]
+}
+{% endschema %}

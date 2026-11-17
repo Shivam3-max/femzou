@@ -1,0 +1,64 @@
+{%- assign routine_total = 0 -%}
+{%- assign routine_ids = '' -%}
+{%- for block in section.blocks -%}
+  {%- assign p = block.settings.product -%}
+  {%- if p -%}
+    {%- assign routine_total = routine_total | plus: p.price -%}
+    {%- assign vid = p.selected_or_first_available_variant.id | append: ',' -%}
+    {%- assign routine_ids = routine_ids | append: vid -%}
+  {%- endif -%}
+{%- endfor -%}
+<section class="sec">
+  <div class="wrap">
+    <div class="head head--center">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2 class="head__h">{{ section.settings.heading }}</h2>
+      <p class="head__sub">{{ section.settings.sub }}</p>
+    </div>
+    <ol class="rsteps">
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- if p -%}
+          <li class="rstep" {{ block.shopify_attributes }}>
+            <a class="rstep__media" href="{{ p.url }}" aria-label="{{ p.title | escape }}">
+              {%- render 'media-slot', image: p.featured_image, label: 'Product image', class_name: 'slot--rstep', alt_text: p.title, widths_attr: '(min-width: 760px) 33vw, 100vw' -%}
+            </a>
+            <div class="rstep__body">
+              <span class="rstep__n">Step {{ forloop.index }}</span>
+              <h3>{{ block.settings.step }}</h3>
+              <a class="rstep__p" href="{{ p.url }}">{{ p.metafields.femzou.short_title.value | default: p.title }}</a>
+              {%- render 'price', target: p, no_off: true -%}
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ol>
+    <div class="rsteps__cta">
+      <p>Complete routine <strong>{{ routine_total | money_without_trailing_zeros }}</strong></p>
+      <button class="btn" type="button" data-add-many="{{ routine_ids }}">Add routine to cart</button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Three-step routine",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Start here" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Good skin is a simple routine" },
+    { "type": "text", "id": "sub", "label": "Subheading", "default": "Three steps, every morning. That is all it takes." }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    { "type": "step", "name": "Step", "settings": [
+      { "type": "text", "id": "step", "label": "Step name", "default": "Cleanse" },
+      { "type": "product", "id": "product", "label": "Product" }
+    ] }
+  ],
+  "presets": [ { "name": "Three-step routine", "blocks": [
+    { "type": "step", "settings": { "step": "Cleanse", "product": "hydrating-face-cleanser-250ml" } },
+    { "type": "step", "settings": { "step": "Treat", "product": "vitamin-c-face-serum" } },
+    { "type": "step", "settings": { "step": "Protect", "product": "sunscreen-spf-50" } }
+  ] } ]
+}
+{% endschema %}

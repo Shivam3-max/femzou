@@ -1,0 +1,11 @@
+{%- comment -%} Accepts: target (product or variant), large, no_off {%- endcomment -%}
+{%- assign cur = target.price -%}
+{%- assign cmp = target.compare_at_price -%}
+<span class="price{% if large %} price--l{% endif %}">
+  <span class="price__now">{{ cur | money_without_trailing_zeros }}</span>
+  {%- if cmp and cmp > cur -%}
+    {%- assign saved = cmp | minus: cur | times: 100 | divided_by: cmp | round -%}
+    <s class="price__was">{{ cmp | money_without_trailing_zeros }}</s>
+    {%- unless no_off -%}<span class="price__off">{{ saved }}% off</span>{%- endunless -%}
+  {%- endif -%}
+</span>

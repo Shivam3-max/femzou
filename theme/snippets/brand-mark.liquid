@@ -1,0 +1,6 @@
+{%- comment -%} Uploaded logo if set, otherwise the small-caps FemZou wordmark used on the packs. {%- endcomment -%}
+{%- if settings.logo -%}
+  {{ settings.logo | image_url: width: 480 | image_tag: alt: shop.name, class: 'brand__img', style: 'width:var(--logo-w)' }}
+{%- else -%}
+  <span class="brand__word">FemZou</span>
+{%- endif -%}

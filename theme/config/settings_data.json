@@ -1,0 +1,153 @@
+{
+  "current": {
+    "logo_width": 132,
+    "product_image_ratio": "1 / 1",
+    "free_shipping_rupees": 499,
+    "cod_available": true,
+    "dispatch_line": "Dispatched in 1 to 3 business days",
+    "contact_phone": "+91 70185 32162",
+    "contact_email": "macvisionbiotech@gmail.com",
+    "contact_address": "Khasra No. 503, H.B. No. 122, Ground Floor, Baddi Nalagarh Road, Village Dhmala, Kalka, Panchkula, Haryana 133302",
+    "social_instagram": "https://www.instagram.com/femzou/",
+    "social_facebook": "https://www.facebook.com/femzou/",
+    "social_threads": "https://www.threads.com/@femzou",
+    "sections": {
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "Beauty. Science. Confidence.",
+          "legal": "Marketed by MAC Vision Biotech."
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {},
+        "blocks": {
+          "message_1": {
+            "type": "message",
+            "settings": {
+              "text": "Free shipping above ₹499. Cash on delivery available."
+            }
+          },
+          "message_2": {
+            "type": "message",
+            "settings": {
+              "text": "Paraben free. Cruelty free. Made in India."
+            }
+          }
+        },
+        "block_order": [
+          "message_1",
+          "message_2"
+        ]
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "featured_product": "onion-hair-oil",
+          "featured_label": "Bestseller"
+        },
+        "blocks": {
+          "category_1": {
+            "type": "category",
+            "settings": {
+              "collection": "all",
+              "label": "Shop All"
+            }
+          },
+          "category_2": {
+            "type": "category",
+            "settings": {
+              "collection": "bestsellers"
+            }
+          },
+          "category_3": {
+            "type": "category",
+            "settings": {
+              "collection": "face-care"
+            }
+          },
+          "category_4": {
+            "type": "category",
+            "settings": {
+              "collection": "hair-care"
+            }
+          },
+          "category_5": {
+            "type": "category",
+            "settings": {
+              "collection": "body-hygiene"
+            }
+          },
+          "category_6": {
+            "type": "category",
+            "settings": {
+              "collection": "sun-care"
+            }
+          },
+          "category_7": {
+            "type": "category",
+            "settings": {
+              "collection": "body-lotions"
+            }
+          },
+          "category_8": {
+            "type": "category",
+            "settings": {
+              "collection": "professional",
+              "label": "Professional"
+            }
+          },
+          "category_9": {
+            "type": "category",
+            "settings": {
+              "collection": "dull-tan"
+            }
+          },
+          "category_10": {
+            "type": "category",
+            "settings": {
+              "collection": "acne-oily"
+            }
+          },
+          "category_11": {
+            "type": "category",
+            "settings": {
+              "collection": "dry-skin"
+            }
+          },
+          "category_12": {
+            "type": "category",
+            "settings": {
+              "collection": "hair-fall"
+            }
+          },
+          "category_13": {
+            "type": "category",
+            "settings": {
+              "collection": "frizz-damage"
+            }
+          }
+        },
+        "block_order": [
+          "category_1",
+          "category_2",
+          "category_3",
+          "category_4",
+          "category_5",
+          "category_6",
+          "category_7",
+          "category_8",
+          "category_9",
+          "category_10",
+          "category_11",
+          "category_12",
+          "category_13"
+        ]
+      }
+    }
+  },
+  "presets": {
+    "Default": {}
+  }
+}

@@ -1,0 +1,41 @@
+<section class="sec">
+  <div class="wrap">
+    <div class="head head--center">
+      <h2 class="head__h">{{ section.settings.heading }}</h2>
+      <p class="head__sub">{{ section.settings.sub }}</p>
+    </div>
+    <div class="ings">
+      {%- for block in section.blocks -%}
+        <a class="ing" href="{{ routes.search_url }}?q={{ block.settings.query | url_encode }}&type=product" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.name }}</h3>
+          <p>{{ block.settings.text }}</p>
+          <span class="textlink">Shop</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop by ingredient",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by Ingredient" },
+    { "type": "text", "id": "sub", "label": "Subheading", "default": "The actives behind the range, and what each one does." }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    { "type": "ingredient", "name": "Ingredient", "settings": [
+      { "type": "text", "id": "name", "label": "Name", "default": "Ingredient" },
+      { "type": "text", "id": "text", "label": "What it does" },
+      { "type": "text", "id": "query", "label": "Search term" }
+    ] }
+  ],
+  "presets": [ { "name": "Shop by ingredient", "blocks": [
+    { "type": "ingredient", "settings": { "name": "OceanDerMX", "text": "A marine active complex that helps hydrate, protect and restore.", "query": "OceanDerMX" } },
+    { "type": "ingredient", "settings": { "name": "Vitamin C", "text": "Boosts radiance and evens the look of skin tone.", "query": "Vitamin C" } },
+    { "type": "ingredient", "settings": { "name": "Glycolic & Salicylic", "text": "Exfoliate the surface and help keep pores clear.", "query": "Salicylic" } },
+    { "type": "ingredient", "settings": { "name": "Keratin", "text": "Strengthens and smooths each strand.", "query": "Keratin" } }
+  ] } ]
+}
+{% endschema %}

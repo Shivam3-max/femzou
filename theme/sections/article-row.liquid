@@ -1,0 +1,25 @@
+{%- assign b = blogs[section.settings.blog_handle] -%}
+{%- if b -%}
+<section class="sec sec--ivory">
+  <div class="wrap">
+    <div class="head head--split">
+      <h2 class="head__h">{{ section.settings.heading }}</h2>
+      <a class="textlink" href="{{ b.url }}">All articles</a>
+    </div>
+    <div class="arts">
+      {%- for a in b.articles limit: 3 -%}{%- render 'article-card', a: a -%}{%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Skin Notes" },
+    { "type": "text", "id": "blog_handle", "label": "Blog handle", "default": "skin-notes" }
+  ],
+  "presets": [ { "name": "Blog posts" } ]
+}
+{% endschema %}

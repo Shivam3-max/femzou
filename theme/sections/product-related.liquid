@@ -1,0 +1,16 @@
+{%- assign cat = collections[product.metafields.femzou.category.value] -%}
+{%- if cat -%}
+<section class="sec">
+  <div class="wrap">
+    <div class="head head--split">
+      <h2 class="head__h">{{ section.settings.heading }}</h2>
+      <a class="textlink" href="{{ cat.url }}">View all {{ cat.title }}</a>
+    </div>
+    {%- render 'product-rail', rail_products: cat.products, rail_limit: 11, skip_handle: product.handle -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{ "name": "You may also like", "settings": [ { "type": "text", "id": "heading", "label": "Heading", "default": "You may also like" } ] }
+{% endschema %}

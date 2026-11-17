@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-about",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "Our mission",
+            "text": "To restore and maintain skin and hair integrity through high-quality, innovative skin, hair and personal care."
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Our vision",
+            "text": "To be recognised for innovative, research-based quality products in dermatology and cosmeceuticals."
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Our values",
+            "text": "Innovation, quality, integrity and excellence in everything we make."
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3"
+      ]
+    },
+    "trust": {
+      "type": "trust-strip",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "text": "Paraben free"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "icon": "drop",
+            "text": "Sulphate-free cleansers"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "icon": "rabbit",
+            "text": "Cruelty free"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "icon": "flask",
+            "text": "Dermatologically tested"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "text": "Made in India"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "trust"
+  ]
+}

@@ -1,0 +1,48 @@
+<aside class="panel panel--cart" data-panel="cart" aria-label="Your cart" hidden>
+  <header class="panel__head">
+    <h2 class="panel__title">Your cart <span data-cart-count-label></span></h2>
+    <button class="iconbtn" type="button" data-close aria-label="Close cart">{% render 'icon', name: 'close' %}</button>
+  </header>
+  <div class="ship" data-ship>
+    <p class="ship__msg" data-ship-msg></p>
+    <div class="ship__bar"><span data-ship-bar></span></div>
+  </div>
+  <div class="panel__body">
+    <div data-cart-items></div>
+    {%- assign ups = collections['bestsellers'].products -%}
+    {%- if ups.size > 0 -%}
+      <div class="ups" data-ups>
+        <p class="ups__h">Pairs well with</p>
+        {%- comment -%} products with photos are suggested first {%- endcomment -%}
+        {%- for pass in (1..2) -%}
+          {%- for p in ups -%}
+            {%- if pass == 1 and p.featured_image == nil -%}{%- continue -%}{%- endif -%}
+            {%- if pass == 2 and p.featured_image -%}{%- continue -%}{%- endif -%}
+            {%- assign v = p.selected_or_first_available_variant -%}
+            <div class="ups__i" data-ups-item="{{ v.id }}" hidden>
+              <a class="ups__img" href="{{ p.url }}" tabindex="-1" aria-hidden="true">{%- render 'media-slot', image: p.featured_image, label: '', class_name: 'slot--thumb', alt_text: '', widths_attr: '56px' -%}</a>
+              <div class="ups__t"><a href="{{ p.url }}">{{ p.metafields.femzou.short_title.value | default: p.title }}</a>{%- render 'price', target: p, no_off: true -%}</div>
+              <button class="ups__add" type="button" data-add="{{ v.id }}" aria-label="Add {{ p.title | escape }} to cart">{% render 'icon', name: 'plus' %}</button>
+            </div>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+  <footer class="panel__foot" data-cart-foot>
+    <div class="total"><span>Subtotal</span><strong data-cart-total></strong></div>
+    <p class="note">Taxes included. Shipping worked out at checkout.</p>
+    <a class="btn btn--full" href="/checkout">Checkout</a>
+    <ul class="pay-assure">
+      <li>{% render 'icon', name: 'shield' %}Secure checkout</li>
+      {%- if settings.cod_available -%}<li>{% render 'icon', name: 'cash' %}Cash on delivery</li>{%- endif -%}
+    </ul>
+  </footer>
+</aside>
+
+<div class="modal" data-panel="quickview" role="dialog" aria-label="Quick view" hidden>
+  <button class="modal__close iconbtn" type="button" data-close aria-label="Close quick view">{% render 'icon', name: 'close' %}</button>
+  <div class="modal__body" data-qv-body><p class="modal__loading">Loading</p></div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite" hidden></div>

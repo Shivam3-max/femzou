@@ -1,0 +1,52 @@
+{%- assign cat_handles = 'all,face-care,hair-care,body-hygiene,professional' | split: ',' -%}
+{%- paginate collection.products by 48 -%}
+<div class="wrap crumbs"><a href="{{ routes.root_url }}">Home</a><span>/</span><span aria-current="page">{{ collection.title }}</span></div>
+
+<section class="wrap coll" data-filter>
+  <header class="coll__head">
+    <h1 class="coll__h">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}<div class="coll__d">{{ collection.description }}</div>{%- endif -%}
+  </header>
+
+  <nav class="coll__cats" aria-label="Categories">
+    {%- for h in cat_handles -%}
+      {%- assign c = collections[h] -%}
+      <a class="coll__cat{% if c.handle == collection.handle %} is-on{% endif %}" href="{{ c.url }}">{{ c.title }}</a>
+    {%- endfor -%}
+  </nav>
+
+  <div class="coll__bar">
+    <div class="pills" role="group" aria-label="Filter by product type">
+      <button class="pill is-on" type="button" data-filter-type="">All</button>
+      {%- for t in collection.all_types -%}
+        <button class="pill" type="button" data-filter-type="{{ t | handle }}">{{ t }}</button>
+      {%- endfor -%}
+    </div>
+    <label class="sort">
+      <span>Sort</span>
+      <select data-sort aria-label="Sort products">
+        {%- assign sort_now = collection.sort_by | default: collection.default_sort_by -%}
+        <option value="manual"{% if sort_now == 'manual' %} selected{% endif %}>Featured</option>
+        <option value="price-ascending"{% if sort_now == 'price-ascending' %} selected{% endif %}>Price, low to high</option>
+        <option value="price-descending"{% if sort_now == 'price-descending' %} selected{% endif %}>Price, high to low</option>
+        <option value="title-ascending"{% if sort_now == 'title-ascending' %} selected{% endif %}>A to Z</option>
+      </select>
+    </label>
+  </div>
+
+  <p class="coll__count"><span data-filter-count>{{ collection.products_count }}</span> products</p>
+
+  <div class="grid" data-filter-grid>
+    {%- for p in collection.products -%}{%- render 'product-card', card_product: p -%}{%- endfor -%}
+  </div>
+  <p class="empty" data-filter-empty hidden>No products of this type in this collection.</p>
+
+  {%- if paginate.pages > 1 -%}
+    <nav class="pager" aria-label="Pages">{{ paginate | default_pagination }}</nav>
+  {%- endif -%}
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{ "name": "Collection", "settings": [] }
+{% endschema %}

@@ -1,0 +1,44 @@
+{%- comment -%}
+  Rendered on demand through the Section Rendering API:
+  /products/<handle>?section_id=quick-view
+{%- endcomment -%}
+{%- if product -%}
+{%- assign fz = product.metafields.femzou -%}
+{%- assign current = product.selected_or_first_available_variant -%}
+<div class="qv" data-qv>
+  <div class="qv__media">
+    <div class="qv__track" data-qv-track>
+      {%- if product.images.size > 0 -%}
+        {%- for img in product.images limit: 6 -%}
+          <div class="qv__shot">{%- render 'media-slot', image: img, label: '', class_name: 'slot--main', alt_text: img.alt, widths_attr: '(min-width: 760px) 40vw, 100vw' -%}</div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class="qv__shot">{%- render 'media-slot', image: nil, label: 'Product image', spec: '1200 × 1200', class_name: 'slot--main', alt_text: '', widths_attr: '' -%}</div>
+      {%- endif -%}
+    </div>
+    {%- if product.images.size > 1 -%}
+      <div class="qv__dots">
+        {%- for img in product.images limit: 6 -%}<button type="button" class="qv__dot{% if forloop.first %} is-on{% endif %}" data-qv-dot="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"></button>{%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="qv__info">
+    <p class="eyebrow">{{ product.type }}</p>
+    <h2 class="qv__title">{{ product.title }}</h2>
+    <p class="pdp__sub">{{ fz.subtitle.value }}</p>
+    <div class="pdp__price">{%- render 'price', target: current, large: true -%}<span class="pdp__tax">MRP incl. of all taxes</span></div>
+    <p class="qv__size">{{ fz.size.value }}</p>
+    {%- if fz.helps_with.value -%}
+      <ul class="ticks ticks--one qv__ticks">{%- for x in fz.helps_with.value limit: 3 -%}<li>{% render 'icon', name: 'check' %}{{ x }}</li>{%- endfor -%}</ul>
+    {%- endif -%}
+    <div class="qv__buy">
+      <button class="btn" type="button" data-add="{{ current.id }}"{% unless current.available %} disabled{% endunless %}>{% if current.available %}Add to cart{% else %}Sold out{% endif %}</button>
+      <a class="btn btn--line" href="{{ product.url }}">View full details</a>
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{ "name": "Quick view", "settings": [] }
+{% endschema %}

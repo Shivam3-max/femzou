@@ -1,0 +1,153 @@
+{%- assign cat_handles = 'face-care,hair-care,body-hygiene' | split: ',' -%}
+{%- assign concern_handles = 'dull-tan,acne-oily,dry-skin,sun-care,hair-fall,frizz-damage' | split: ',' -%}
+<header class="hdr" data-header style="--logo-w:{{ settings.logo_width }}px">
+  <div class="wrap hdr__in">
+    <button class="iconbtn hdr__burger" type="button" data-open="nav" aria-label="Open menu">{% render 'icon', name: 'menu' %}</button>
+
+    <nav class="hdr__nav" aria-label="Main">
+      <div class="nav__item" data-mega>
+        <button class="nav__link" type="button" aria-expanded="false">Shop {% render 'icon', name: 'chev' %}</button>
+        <div class="mega">
+          <div class="wrap mega__in">
+            {%- for h in cat_handles -%}
+              {%- assign c = collections[h] -%}
+              <div class="mega__col">
+                <a class="mega__title" href="{{ c.url }}">{{ c.title }}</a>
+                <ul>
+                  {%- for t in c.all_types -%}
+                    <li><a href="{{ c.url }}?type={{ t | handle }}">{{ t }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endfor -%}
+            <div class="mega__col mega__col--feature">
+              <a class="mega__title" href="{{ routes.all_products_collection_url }}">Collections</a>
+              <ul>
+                <li><a href="{{ collections['bestsellers'].url }}">Bestsellers</a></li>
+                <li><a href="{{ collections['body-lotions'].url }}">Fruit Body Lotions</a></li>
+                <li><a href="{{ collections['professional'].url }}">FemZou Professional</a></li>
+                <li><a href="{{ routes.all_products_collection_url }}">Shop all products</a></li>
+              </ul>
+            </div>
+            {%- assign fp = section.settings.featured_product -%}
+            {%- if fp -%}
+              <a class="mega__feature" href="{{ fp.url }}">
+                {%- render 'media-slot', image: fp.featured_image, label: '', class_name: 'slot--mega', alt_text: fp.title, widths_attr: '240px' -%}
+                <span class="mega__feature-k">{{ section.settings.featured_label }}</span>
+                <strong>{{ fp.metafields.femzou.short_title.value | default: fp.title }}</strong>
+                {%- render 'price', target: fp, no_off: true -%}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      <div class="nav__item" data-mega>
+        <button class="nav__link" type="button" aria-expanded="false">Shop by Concern {% render 'icon', name: 'chev' %}</button>
+        <div class="mega">
+          <div class="wrap mega__in mega__in--concern">
+            {%- for h in concern_handles -%}
+              {%- assign c = collections[h] -%}
+              <a class="mega__concern" href="{{ c.url }}"><strong>{{ c.title }}</strong><span>{{ c.description | strip_html }}</span></a>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+      <a class="nav__link" href="{{ collections['bestsellers'].url }}">Bestsellers</a>
+      <a class="nav__link" href="{{ blogs['skin-notes'].url }}">Skin Notes</a>
+    </nav>
+
+    <a class="brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">{% render 'brand-mark' %}</a>
+
+    <div class="hdr__tools">
+      <a class="nav__link hdr__about" href="/pages/about">About</a>
+      <button class="iconbtn" type="button" data-open="search" aria-label="Search">{% render 'icon', name: 'search' %}</button>
+      <a class="iconbtn hdr__acct" href="{{ routes.account_url }}" aria-label="Account">{% render 'icon', name: 'user' %}</a>
+      <button class="iconbtn iconbtn--cart" type="button" data-open="cart" aria-label="Cart">
+        {% render 'icon', name: 'bag' %}<span class="cartdot" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+
+  {%- assign active_cat = collection.handle -%}
+  {%- if product -%}{%- assign active_cat = product.metafields.femzou.category.value -%}{%- endif -%}
+  <nav class="catbar{% if template.name == 'index' %} catbar--late{% endif %}" data-catbar data-rail aria-label="Browse categories">
+    <div class="wrap catbar__in">
+      <button class="catbar__btn catbar__btn--l" type="button" data-rail-prev aria-label="Previous categories" hidden>{% render 'icon', name: 'left' %}</button>
+      <div class="catbar__track" data-rail-track data-drag>
+        {%- for block in section.blocks -%}
+          {%- assign c = block.settings.collection -%}
+          <a class="catbar__i{% if c.handle == active_cat %} is-on{% endif %}" href="{{ c.url }}"{% if c.handle == active_cat %} aria-current="page"{% endif %} {{ block.shopify_attributes }}>
+            {%- render 'media-slot', image: block.settings.image, label: '', class_name: 'slot--chip', alt_text: '', widths_attr: '64px' -%}
+            <span>{{ block.settings.label | default: c.title }}</span>
+          </a>
+        {%- endfor -%}
+      </div>
+      <button class="catbar__btn catbar__btn--r" type="button" data-rail-next aria-label="More categories" hidden>{% render 'icon', name: 'right' %}</button>
+    </div>
+  </nav>
+</header>
+
+<aside class="panel panel--nav" data-panel="nav" aria-label="Menu" hidden>
+  <header class="panel__head">
+    <a class="brand" href="{{ routes.root_url }}">{% render 'brand-mark' %}</a>
+    <button class="iconbtn" type="button" data-close aria-label="Close menu">{% render 'icon', name: 'close' %}</button>
+  </header>
+  <div class="panel__body mnav">
+    {%- for h in cat_handles -%}
+      {%- assign c = collections[h] -%}
+      <details class="mnav__group">
+        <summary>{{ c.title }} {% render 'icon', name: 'chev' %}</summary>
+        <ul>
+          <li><a href="{{ c.url }}">All {{ c.title }}</a></li>
+          {%- for t in c.all_types -%}<li><a href="{{ c.url }}?type={{ t | handle }}">{{ t }}</a></li>{%- endfor -%}
+        </ul>
+      </details>
+    {%- endfor -%}
+    <details class="mnav__group">
+      <summary>Shop by Concern {% render 'icon', name: 'chev' %}</summary>
+      <ul>
+        {%- for h in concern_handles -%}<li><a href="{{ collections[h].url }}">{{ collections[h].title }}</a></li>{%- endfor -%}
+      </ul>
+    </details>
+    <a class="mnav__link" href="{{ collections['bestsellers'].url }}">Bestsellers</a>
+    <a class="mnav__link" href="{{ collections['professional'].url }}">FemZou Professional</a>
+    <a class="mnav__link" href="{{ routes.all_products_collection_url }}">Shop All</a>
+    <a class="mnav__link" href="{{ blogs['skin-notes'].url }}">Skin Notes</a>
+    <a class="mnav__link" href="/pages/about">About</a>
+    <a class="mnav__link" href="/pages/contact">Contact</a>
+    <a class="mnav__link" href="{{ routes.account_url }}">Account</a>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "product", "id": "featured_product", "label": "Featured product in the Shop menu" },
+    { "type": "text", "id": "featured_label", "label": "Featured product label", "default": "Bestseller" }
+  ],
+  "max_blocks": 20,
+  "blocks": [
+    { "type": "category", "name": "Sticky category", "settings": [
+      { "type": "collection", "id": "collection", "label": "Collection" },
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "image_picker", "id": "image", "label": "Small image", "info": "200 × 200" }
+    ] }
+  ],
+  "presets": [ { "name": "Header", "blocks": [
+    { "type": "category", "settings": { "collection": "all", "label": "Shop All" } },
+    { "type": "category", "settings": { "collection": "bestsellers" } },
+    { "type": "category", "settings": { "collection": "face-care" } },
+    { "type": "category", "settings": { "collection": "hair-care" } },
+    { "type": "category", "settings": { "collection": "body-hygiene" } },
+    { "type": "category", "settings": { "collection": "sun-care" } },
+    { "type": "category", "settings": { "collection": "body-lotions" } },
+    { "type": "category", "settings": { "collection": "professional", "label": "Professional" } },
+    { "type": "category", "settings": { "collection": "dull-tan" } },
+    { "type": "category", "settings": { "collection": "acne-oily" } },
+    { "type": "category", "settings": { "collection": "dry-skin" } },
+    { "type": "category", "settings": { "collection": "hair-fall" } },
+    { "type": "category", "settings": { "collection": "frizz-damage" } }
+  ] } ]
+}
+{% endschema %}

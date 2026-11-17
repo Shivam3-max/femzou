@@ -1,0 +1,43 @@
+<section class="sec sec--ivory">
+  <div class="wrap">
+    <div class="head head--center">
+      <h2 class="head__h">{{ section.settings.heading }}</h2>
+      <p class="head__sub">{{ section.settings.sub }}</p>
+    </div>
+    <div class="concerns">
+      {%- for block in section.blocks -%}
+        {%- assign c = block.settings.collection -%}
+        <a class="concern" href="{{ c.url }}" {{ block.shopify_attributes }}>
+          {%- render 'media-slot', image: block.settings.image, label: 'Concern image', spec: '800 × 1000', class_name: 'slot--concern', alt_text: c.title, widths_attr: '(min-width: 1000px) 17vw, 50vw' -%}
+          <strong>{{ c.title }}</strong>
+          <span>{{ c.products_count }} products</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop by concern",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by Concern" },
+    { "type": "text", "id": "sub", "label": "Subheading", "default": "Start with what you want to change." }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    { "type": "concern", "name": "Concern", "settings": [
+      { "type": "collection", "id": "collection", "label": "Collection" },
+      { "type": "image_picker", "id": "image", "label": "Image", "info": "800 × 1000" }
+    ] }
+  ],
+  "presets": [ { "name": "Shop by concern", "blocks": [
+    { "type": "concern", "settings": { "collection": "dull-tan" } },
+    { "type": "concern", "settings": { "collection": "acne-oily" } },
+    { "type": "concern", "settings": { "collection": "dry-skin" } },
+    { "type": "concern", "settings": { "collection": "sun-care" } },
+    { "type": "concern", "settings": { "collection": "hair-fall" } },
+    { "type": "concern", "settings": { "collection": "frizz-damage" } }
+  ] } ]
+}
+{% endschema %}

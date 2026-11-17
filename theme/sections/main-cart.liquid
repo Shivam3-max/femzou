@@ -1,0 +1,19 @@
+<section class="wrap cartpage" data-cart-page>
+  <h1 class="coll__h">Your cart</h1>
+  <div class="cartpage__grid">
+    <div class="ship ship--page" data-ship>
+      <p class="ship__msg" data-ship-msg></p>
+      <div class="ship__bar"><span data-ship-bar></span></div>
+    </div>
+    <div class="cartpage__items" data-cart-items></div>
+    <aside class="cartpage__sum" data-cart-foot>
+      <div class="total"><span>Subtotal</span><strong data-cart-total></strong></div>
+      <p class="note">Taxes included. Shipping worked out at checkout.</p>
+      <a class="btn btn--full" href="/checkout">Checkout</a>
+    </aside>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

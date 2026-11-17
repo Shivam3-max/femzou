@@ -1,0 +1,8 @@
+<article class="art">
+  <a href="{{ a.url }}" aria-label="{{ a.title | escape }}">
+    {%- render 'media-slot', image: a.image, label: 'Article image', spec: '1200 × 800', class_name: 'slot--art', alt_text: a.title, widths_attr: '(min-width: 900px) 33vw, 100vw' -%}
+  </a>
+  <p class="art__meta">{{ a.metafields.femzou.read_minutes.value | default: 3 }} min read</p>
+  <h3 class="art__h"><a href="{{ a.url }}">{{ a.title }}</a></h3>
+  <p class="art__p">{{ a.excerpt }}</p>
+</article>

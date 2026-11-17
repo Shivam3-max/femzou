@@ -1,0 +1,17 @@
+{%- assign list = product.metafields.femzou.faq.value -%}
+{%- if list -%}
+<section class="sec">
+  <div class="wrap faqwrap">
+    <h2 class="head__h">{{ section.settings.heading }}</h2>
+    <div class="acc">
+      {%- for f in list -%}
+        <details><summary>{{ f.q }} {% render 'icon', name: 'chev' %}</summary><div class="acc__b rte"><p>{{ f.a }}</p></div></details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{ "name": "Product FAQs", "settings": [ { "type": "text", "id": "heading", "label": "Heading", "default": "Questions, answered" } ] }
+{% endschema %}

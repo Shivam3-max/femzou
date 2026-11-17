@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart"
+    },
+    "recent": {
+      "type": "recently-viewed"
+    }
+  },
+  "order": [
+    "main",
+    "recent"
+  ]
+}

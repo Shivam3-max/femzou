@@ -1,0 +1,23 @@
+<section class="wrap coll">
+  <header class="coll__head">
+    <h1 class="coll__h">Search</h1>
+    <form class="searchbar" action="{{ routes.search_url }}" method="get" role="search">
+      {% render 'icon', name: 'search' %}
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products, ingredients or concerns" aria-label="Search">
+      <input type="hidden" name="type" value="product">
+      <button class="btn" type="submit">Search</button>
+    </form>
+    {%- if search.performed -%}<p class="coll__count">{{ search.results_count }} results for “{{ search.terms | escape }}”</p>{%- endif -%}
+  </header>
+  {%- if search.performed and search.results_count > 0 -%}
+    <div class="grid">
+      {%- for item in search.results -%}{%- if item.url contains '/products/' -%}{%- render 'product-card', card_product: item -%}{%- endif -%}{%- endfor -%}
+    </div>
+  {%- elsif search.performed -%}
+    <div class="empty"><p>Nothing matched that search.</p><a class="btn" href="{{ routes.all_products_collection_url }}">Shop all products</a></div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

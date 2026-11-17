@@ -1,0 +1,178 @@
+{%- assign fz = product.metafields.femzou -%}
+{%- assign current = product.selected_or_first_available_variant -%}
+{%- assign cat = collections[fz.category.value] -%}
+{%- assign gallery_count = section.settings.gallery_placeholders -%}
+<div class="wrap crumbs">
+  <a href="{{ routes.root_url }}">Home</a><span>/</span>
+  {%- if cat -%}<a href="{{ cat.url }}">{{ cat.title }}</a><span>/</span>{%- endif -%}
+  <span aria-current="page">{{ product.title }}</span>
+</div>
+
+<section class="wrap pdp" data-pdp data-recent-handle="{{ product.handle }}">
+  <div class="pdp__gallery" data-gallery>
+    <div class="pdp__thumbs" role="tablist" aria-label="Product images">
+      {%- if product.media.size > 0 -%}
+        {%- for m in product.media -%}
+          <button class="thumb{% if forloop.first %} is-on{% endif %}" type="button" data-thumb="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}">
+            {%- render 'media-slot', image: m.preview_image, label: '', class_name: 'slot--thumb', alt_text: '', widths_attr: '80px' -%}
+          </button>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..gallery_count) -%}
+          <button class="thumb{% if forloop.first %} is-on{% endif %}" type="button" data-thumb="{{ forloop.index0 }}" aria-label="Show image {{ i }}">
+            {%- render 'media-slot', image: nil, label: '', class_name: 'slot--thumb', alt_text: '', widths_attr: '80px' -%}
+          </button>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <div class="pdp__main">
+      <div class="pdp__track" data-gtrack>
+        {%- if product.media.size > 0 -%}
+          {%- for m in product.media -%}
+            {%- assign full = m.preview_image | image_url: width: 2200 -%}
+            <button class="pdp__shot{% if forloop.first %} is-on{% endif %}" type="button" data-shot="{{ forloop.index0 }}" data-full="{{ full }}" aria-label="Zoom image {{ forloop.index }} of {{ product.media.size }}">
+              {%- render 'media-slot', image: m.preview_image, label: '', class_name: 'slot--main', alt_text: m.preview_image.alt, widths_attr: '(min-width: 1000px) 50vw, 100vw' -%}
+            </button>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..gallery_count) -%}
+            {%- capture lbl -%}Product image {{ i }}{%- endcapture -%}
+            <div class="pdp__shot{% if forloop.first %} is-on{% endif %}" data-shot="{{ forloop.index0 }}">
+              {%- render 'media-slot', image: nil, label: lbl, spec: '1200 × 1200', class_name: 'slot--main', alt_text: '', widths_attr: '' -%}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+      <button class="pdp__nav pdp__nav--l" type="button" data-gprev aria-label="Previous image">{% render 'icon', name: 'left' %}</button>
+      <button class="pdp__nav pdp__nav--r" type="button" data-gnext aria-label="Next image">{% render 'icon', name: 'right' %}</button>
+      {%- assign shot_total = product.media.size -%}
+      {%- if shot_total == 0 -%}{%- assign shot_total = gallery_count -%}{%- endif -%}
+      <span class="pdp__count" aria-hidden="true"><span data-gcount>1</span> / {{ shot_total }}</span>
+      {%- if product.media.size > 0 -%}<span class="pdp__hint" aria-hidden="true">{% render 'icon', name: 'search' %}Tap to zoom</span>{%- endif -%}
+    </div>
+  </div>
+
+  <div class="lb" data-lightbox role="dialog" aria-label="{{ product.title | escape }} images" hidden>
+    <button class="lb__close iconbtn" type="button" data-lb-close aria-label="Close">{% render 'icon', name: 'close' %}</button>
+    <button class="lb__nav lb__nav--l" type="button" data-lb-prev aria-label="Previous image">{% render 'icon', name: 'left' %}</button>
+    <img class="lb__img" data-lb-img src="" alt="">
+    <button class="lb__nav lb__nav--r" type="button" data-lb-next aria-label="Next image">{% render 'icon', name: 'right' %}</button>
+    <span class="lb__count" data-lb-count></span>
+  </div>
+
+  <div class="pdp__info">
+    <p class="eyebrow">{{ product.type }}</p>
+    <h1 class="pdp__title">{{ product.title }}</h1>
+    <p class="pdp__sub">{{ fz.subtitle.value }}</p>
+
+    {%- if product.metafields.reviews.rating.value -%}
+      <p class="pdp__rating">{{ product.metafields.reviews.rating.value }} / 5 <span>({{ product.metafields.reviews.rating_count.value }} reviews)</span></p>
+    {%- endif -%}
+
+    <div class="pdp__price">
+      {%- render 'price', target: current, large: true -%}
+      <span class="pdp__tax">MRP incl. of all taxes</span>
+    </div>
+
+    <div class="sizes" aria-label="Pack size">
+      <span class="sizes__pill is-on">{{ fz.size.value }}</span>
+      {%- for h in fz.also_in.value -%}
+        {%- assign alt = all_products[h] -%}
+        {%- if alt -%}<a class="sizes__pill" href="{{ alt.url }}">{{ alt.metafields.femzou.size.value }}</a>{%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- form 'product', product, class: 'buy' -%}
+      <input type="hidden" name="id" value="{{ current.id }}">
+      <div class="qty" data-qty>
+        <button type="button" data-qty-dec aria-label="Decrease quantity">{% render 'icon', name: 'minus' %}</button>
+        <input type="number" name="quantity" value="1" min="1" aria-label="Quantity">
+        <button type="button" data-qty-inc aria-label="Increase quantity">{% render 'icon', name: 'plus' %}</button>
+      </div>
+      <button class="btn buy__add" type="submit" data-add-form{% unless current.available %} disabled{% endunless %}>{% if current.available %}Add to cart{% else %}Sold out{% endif %}</button>
+      <button class="btn btn--line buy__now" type="button" data-buy-now{% unless current.available %} disabled{% endunless %}>Buy it now</button>
+    {%- endform -%}
+
+    <ul class="assure">
+      <li>{% render 'icon', name: 'truck' %}Free shipping above ₹{{ settings.free_shipping_rupees }}</li>
+      {%- if settings.cod_available -%}<li>{% render 'icon', name: 'cash' %}Cash on delivery</li>{%- endif -%}
+      <li>{% render 'icon', name: 'check' %}{{ settings.dispatch_line }}</li>
+    </ul>
+
+    <div class="box">
+      {%- if fz.helps_with.value -%}
+        <h2 class="box__h">Helps with</h2>
+        <ul class="ticks">{%- for x in fz.helps_with.value -%}<li>{% render 'icon', name: 'check' %}{{ x }}</li>{%- endfor -%}</ul>
+      {%- endif -%}
+      {%- if fz.works_for.value -%}
+        <h2 class="box__h">Works best for</h2>
+        <ul class="ticks">{%- for x in fz.works_for.value -%}<li>{% render 'icon', name: 'check' %}{{ x }}</li>{%- endfor -%}</ul>
+      {%- endif -%}
+    </div>
+
+    {%- if fz.ingredients.value -%}
+      <div class="keying" data-keying>
+        <h2 class="box__h">Key ingredients</h2>
+        <div class="chips" role="tablist">
+          {%- for x in fz.ingredients.value -%}
+            <button class="chip{% if forloop.first %} is-on{% endif %}" type="button" data-ing="{{ forloop.index0 }}">{{ x.n }}</button>
+          {%- endfor -%}
+        </div>
+        {%- for x in fz.ingredients.value -%}
+          <p class="keying__d" data-ing-d="{{ forloop.index0 }}"{% unless forloop.first %} hidden{% endunless %}>{{ x.d }}</p>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if fz.routine.value -%}
+      {%- capture routine_ids -%}{%- for h in fz.routine.value -%}{%- assign r = all_products[h] -%}{%- if r -%}{{ r.selected_or_first_available_variant.id }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}{%- endfor -%}{%- endcapture -%}
+      <div class="routine">
+        <h2 class="box__h">Complete the routine</h2>
+        <ol class="routine__list">
+          {%- for h in fz.routine.value -%}
+            {%- assign r = all_products[h] -%}
+            {%- if r -%}
+              <li class="routine__step">
+                <a class="routine__img" href="{{ r.url }}" aria-label="{{ r.title | escape }}">{%- render 'media-slot', image: r.featured_image, label: '', class_name: 'slot--thumb', alt_text: r.title, widths_attr: '64px' -%}</a>
+                <div>
+                  <span class="routine__n">Step {{ forloop.index }}. {{ r.type }}</span>
+                  <a class="routine__t" href="{{ r.url }}">{{ r.metafields.femzou.short_title.value | default: r.title }}</a>
+                  {%- render 'price', target: r -%}
+                </div>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ol>
+        <button class="btn btn--line btn--full" type="button" data-add-many="{{ routine_ids }}">Add all three to cart</button>
+      </div>
+    {%- endif -%}
+
+    <div class="acc">
+      <details open><summary>Product details {% render 'icon', name: 'chev' %}</summary><div class="acc__b rte">{{ product.description }}</div></details>
+      {%- if fz.how_to.value -%}
+        <details><summary>How to use {% render 'icon', name: 'chev' %}</summary><div class="acc__b"><ol class="steps">{%- for s in fz.how_to.value -%}<li>{{ s }}</li>{%- endfor -%}</ol></div></details>
+      {%- endif -%}
+      {%- if fz.free_from.value -%}
+        <details><summary>Formula promises {% render 'icon', name: 'chev' %}</summary><div class="acc__b"><ul class="ticks ticks--one">{%- for x in fz.free_from.value -%}<li>{% render 'icon', name: 'check' %}{{ x }}</li>{%- endfor -%}</ul></div></details>
+      {%- endif -%}
+      <details><summary>Shipping and returns {% render 'icon', name: 'chev' %}</summary><div class="acc__b rte"><p>{{ settings.dispatch_line }}. Delivery usually takes 5 to 10 business days from dispatch.</p><p>Opened products cannot be returned for hygiene reasons. Damaged or incorrect items can be replaced if you tell us within 7 days of delivery.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<div class="stickybuy" data-stickybuy hidden>
+  <div class="wrap stickybuy__in">
+    <div class="stickybuy__thumb">{%- render 'media-slot', image: product.featured_image, label: '', class_name: 'slot--thumb', alt_text: '', widths_attr: '48px' -%}</div>
+    <div class="stickybuy__txt"><strong>{{ fz.short_title.value | default: product.title }}</strong>{%- render 'price', target: current -%}</div>
+    <button class="btn" type="button" data-add="{{ current.id }}"{% unless current.available %} disabled{% endunless %}>Add to cart</button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "range", "id": "gallery_placeholders", "label": "Empty image slots before photos are uploaded", "min": 1, "max": 8, "step": 1, "default": 5 }
+  ]
+}
+{% endschema %}

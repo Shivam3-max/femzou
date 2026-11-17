@@ -1,0 +1,39 @@
+<section class="hero" data-hero aria-roledescription="carousel" aria-label="Featured">
+  <div class="hero__frame">
+    <div class="hero__track" data-hero-track>
+      {%- for block in section.blocks -%}
+        <a class="hero__slide" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+          {%- capture lbl -%}Hero banner {{ forloop.index }}{%- endcapture -%}
+          {%- render 'media-slot', image: block.settings.image, label: lbl, spec: 'Desktop 1920 × 640', class_name: 'slot--hero slot--desk', alt_text: block.settings.alt, widths_attr: '100vw' -%}
+          {%- assign phone_img = block.settings.image_mobile | default: block.settings.image -%}
+          {%- render 'media-slot', image: phone_img, label: lbl, spec: 'Phone 1080 × 1350', class_name: 'slot--hero slot--phone', alt_text: block.settings.alt, widths_attr: '100vw' -%}
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- if section.blocks.size > 1 -%}
+      <button class="hero__arrow hero__arrow--l" type="button" data-hero-prev aria-label="Previous banner">{% render 'icon', name: 'left' %}</button>
+      <button class="hero__arrow hero__arrow--r" type="button" data-hero-next aria-label="Next banner">{% render 'icon', name: 'right' %}</button>
+    {%- endif -%}
+  </div>
+  {%- if section.blocks.size > 1 -%}
+    <div class="hero__dots">
+      {%- for block in section.blocks -%}<button type="button" class="hero__dot{% if forloop.first %} is-on{% endif %}" data-hero-dot="{{ forloop.index0 }}" aria-label="Go to banner {{ forloop.index }}"></button>{%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Hero banners",
+  "max_blocks": 6,
+  "blocks": [
+    { "type": "banner", "name": "Banner", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Desktop artwork", "info": "1920 × 640. Put all text in the artwork." },
+      { "type": "image_picker", "id": "image_mobile", "label": "Phone artwork", "info": "1080 × 1350." },
+      { "type": "text", "id": "alt", "label": "Image description" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ] }
+  ],
+  "presets": [ { "name": "Hero banners", "blocks": [ { "type": "banner" }, { "type": "banner" }, { "type": "banner" } ] } ]
+}
+{% endschema %}

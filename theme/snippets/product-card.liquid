@@ -1,0 +1,33 @@
+{%- comment -%} Accepts: card_product {%- endcomment -%}
+{%- assign fz = card_product.metafields.femzou -%}
+{%- assign card_name = fz.short_title.value | default: card_product.title -%}
+{%- assign card_v = card_product.selected_or_first_available_variant -%}
+{%- assign card_cmp = card_product.compare_at_price -%}
+{%- assign card_alt_img = card_product.images[1] -%}
+<article class="pc{% if card_alt_img %} pc--swap{% endif %}" data-type="{{ card_product.type | handle }}">
+  <div class="pc__media">
+    <a class="pc__link" href="{{ card_product.url }}" aria-label="{{ card_name | escape }}" tabindex="-1">
+      {%- render 'media-slot', image: card_product.featured_image, label: 'Product image', class_name: 'slot--product', alt_text: card_product.title, widths_attr: '(min-width: 1000px) 25vw, 50vw' -%}
+      {%- if card_alt_img -%}
+        <span class="pc__alt" aria-hidden="true">{{ card_alt_img | image_url: width: 900 | image_tag: loading: 'lazy', alt: '', sizes: '(min-width: 1000px) 25vw, 50vw' }}</span>
+      {%- endif -%}
+    </a>
+    {%- if card_cmp and card_cmp > card_product.price -%}
+      {%- assign card_off = card_cmp | minus: card_product.price | times: 100 | divided_by: card_cmp | round -%}
+      <span class="pc__badge">{{ card_off }}% off</span>
+    {%- endif -%}
+    <button class="pc__qv" type="button" data-quickview="{{ card_product.url }}" aria-label="Quick view {{ card_name | escape }}">{% render 'icon', name: 'search' %}<span>Quick view</span></button>
+  </div>
+  <div class="pc__body">
+    <h3 class="pc__name"><a href="{{ card_product.url }}">{{ card_name }}</a></h3>
+    <p class="pc__meta">{{ card_product.type }}<span aria-hidden="true">·</span>{{ fz.size.value }}</p>
+    <div class="pc__foot">
+      {%- render 'price', target: card_product, no_off: true -%}
+      {%- if card_product.available -%}
+        <button class="pc__add" type="button" data-add="{{ card_v.id }}" aria-label="Add {{ card_name | escape }} to cart">Add</button>
+      {%- else -%}
+        <span class="pc__out">Sold out</span>
+      {%- endif -%}
+    </div>
+  </div>
+</article>
