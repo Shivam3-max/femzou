@@ -73,6 +73,31 @@ GALLERY = {
         "Pure Steam Distilled Rose Mist", "Rose Mist Benefits Infographic", "FemZou Rose Mist for Every Skin Type",
         "Rose Mist Skincare Guide", "Pure Rose Ingredient Infographic",
     ],
+    "hydrating-face-wash-100ml": [
+        "FEMZOU Hydrating Face Cleanser Product Shot", "FemZou Hydrating Cleanser Ad", "Aloe Vera Hydrating Cleanser Infographic",
+        "5 Signs of Skin Sensitivity", "FEMZOU Cleanser_ Simple Three-Step Guide", "White Organic Cleanser Bottle Back Label",
+    ],
+    "dual-acid-power-facewash": [
+        "FemZou Dual Acid Facewash Bottle", "FemZou Facewash Benefits Infographic", "FemZou\u2122 Botanical Facewash Infographic",
+        "FemZou Facewash How-To Guide", "White Facial Cleanser Bottle", "Back-Label White Pump Bottle",
+    ],
+    "ha-vitamin-c-foaming-face-wash": [
+        "FEMZOU Vitamin C Foaming Facewash Bottle", "HA + Vitamin C Foaming Face Wash", "FemZou Brightening Face Wash Ad",
+        "Unveil Brighter Skin with FemZou", "HA+VC Foaming Face Wash Bottle", "Vitamin C Foaming Face Wash Bottle",
+    ],
+    "sunscreen-spf-50": [
+        "FemZou SPF 50 Sunscreen Bottle", "FemZou SPF 50 Sunscreen Product Shot", "Glossy Glow Sunscreen Product Showcase",
+        "Why You\u2019ll Trust It_ SPF 50 Benefits", "Key Benefits_ Golden Glow Sunscreen", "Radiant SPF 50 Key Benefits",
+        "White Sunscreen Spray Bottle Product Shot",
+    ],
+    "hair-cleanser": [
+        "FEMZOU Hair Cleanser Bottle Studio Shot", "FemZou Hair Cleanser in Water", "Hydrating Hair Benefits Advertisement",
+        "Key Ingredients_ Aloe, Fenugreek & Rosemary", "Teal Hair Cleanser Pump Bottle", "Teal Pump Bottle Back Label",
+    ],
+    "cleansing-hair-conditioner-100ml": [
+        "FEMZOU Gleaming Hair Conditioner Bottle", "FemZou Cleansing Hair Conditioner", "Before and After Hair Transformation",
+        "FemZou Hair Conditioner Benefits", "Gleaming Hair Conditioner Usage Guide", "Back-Labeled White Conditioner Bottle",
+    ],
 }
 
 # left out on purpose (see docs/SEEDED-DATA.md)
@@ -85,6 +110,12 @@ SKIPPED = {
     "How to Use Facial Cleanser (1)": "duplicate",
     "Natural Ingredients Hair Cleanser Infographic (1)": "duplicate",
     "FemZou Rose Mist Refresh Moment": "near-duplicate of the promotional poster",
+    "Hyaluronic Acid Sunscreen Spray Ad": "claims 1% hyaluronic acid, which is not on the sunscreen label",
+    "FemZou Sunscreen Glow Advertisement": "claims 100% new-gen UV filters; the label lists conventional filters",
+    "Radiant Skin Vitamin Guide": "names vitamin E and mulberry, which are not on the HA + Vitamin C label",
+    "FemZou Dual Acid Facewash Bottle (1)": "duplicate",
+    "Back-Label White Pump Bottle (1)": "duplicate",
+    "FemZou SPF 50 Sunscreen Product Shot (1)": "duplicate",
 }
 
 
