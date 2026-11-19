@@ -22,6 +22,8 @@ const TEATREE = { n: 'Tea Tree', d: 'Soothes the scalp and keeps it fresh.' };
 const ARGAN = { n: 'Argan Oil', d: 'Softens, nourishes and adds shine.' };
 const SHEA = { n: 'Shea Butter', d: 'Deeply moisturises and softens.' };
 const HA = { n: 'Hyaluronic Acid', d: 'Attracts and holds moisture in the skin.' };
+const NIA = { n: 'Niacinamide', d: 'Vitamin B3 that supports a smooth, even-looking skin barrier.' };
+const BETAINE = { n: 'Betaine', d: 'A plant-derived humectant that helps skin keep its moisture.' };
 const GLY = { n: 'Glycolic Acid', d: 'Exfoliates dead skin cells and refines texture.' };
 const SAL = { n: 'Salicylic Acid', d: 'Works inside pores to help keep them clear.' };
 
@@ -32,8 +34,8 @@ const lotion = (fruit, handle, line, note) => ({
   helps: ['Locks in moisture', 'Improves skin softness', 'Leaves a light, fresh scent', 'Comfortable all-day wear'],
   works: ['All skin types', 'Daily use'],
   ingredients: fruit === 'Orange'
-    ? [{ n: 'Orange Extract', d: 'Rich in vitamin C, freshens dull-looking skin.' }, SHEA, HA, VITE]
-    : [{ n: `${fruit} Extract`, d: 'Gives the lotion its fresh character.' }, SHEA, HA],
+    ? [{ n: 'Orange Extract', d: 'Rich in vitamin C, freshens dull-looking skin.' }, SHEA, HA, NIA, BETAINE, VITE]
+    : [{ n: `${fruit} Extract`, d: 'Gives the lotion its fresh character.' }, SHEA, HA, NIA, BETAINE],
   how: ['Apply on clean skin after a shower.', 'Massage until absorbed.', 'Use morning and night.'],
   free: [],
   pairs: ['lavender-hand-wash', 'aloe-vera-gel'],
@@ -45,8 +47,8 @@ export const products = [
     desc: 'A deep conditioning treatment enriched with natural extracts and vitamins. It works into the hair shaft to help repair damage, reduce frizz and restore moisture balance.',
     helps: ['Deeply nourishes dry, frizzy hair', 'Strengthens from root to tip', 'Restores natural shine', 'Helps protect from heat and colour stress'],
     works: ['All hair types', 'Men and women'],
-    ingredients: [ARGAN, KERATIN, { n: 'Aloe Vera', d: 'Soothes and hydrates the scalp.' }, VITE, { n: 'Natural Extracts', d: 'Revitalise and strengthen.' }],
-    how: ['After shampooing, apply evenly on damp hair.', 'Leave for 10 to 15 minutes.', 'Rinse thoroughly with water.'],
+    ingredients: [{ n: 'Hydrolyzed Keratin', d: 'Strengthens and smooths the hair strand.' }, ARGAN, { n: 'Rosemary Oil', d: 'Conditions the scalp and hair.' }, VITE],
+    how: ['Wash with shampoo and gently towel-dry.', 'Apply to damp hair from mid-lengths to ends, combing through with a wide-tooth comb.', 'Leave for 5 to 20 minutes, then rinse with lukewarm or cool water.', 'Use 1 to 2 times a week for dry or damaged hair.'],
     free: [], routine: ['sulphate-free-shampoo', 'gleaming-hair-conditioner-250ml', 'hair-mask'],
   },
   {
@@ -171,7 +173,7 @@ export const products = [
     desc: 'A rich, non-greasy formula that deeply moisturises and nourishes. It helps protect against dryness and leaves skin soft, smooth and radiant.',
     helps: ['Deep moisturisation', 'Nourishes and softens', 'Helps protect the skin barrier', 'Smooth, healthy glow'],
     works: ['All skin types', 'Dry-weather care'],
-    ingredients: [{ n: 'Cocoa Butter', d: 'Rich, softening moisture.' }, SHEA, { n: 'Almond Oil', d: 'Nourishes and smooths.' }],
+    ingredients: [{ n: 'Cocoa Butter', d: 'Rich, softening moisture.' }, SHEA, { n: 'Almond Oil', d: 'Nourishes and smooths.' }, { n: 'Aloe Vera Extract', d: 'Soothes and helps hydrate.' }, { n: 'Glycerin', d: 'Draws moisture to the skin surface.' }],
     how: ['Take a small amount on clean skin.', 'Massage gently until absorbed.', 'Use morning and night.'],
     free: [],
   },
@@ -221,13 +223,22 @@ export const products = [
     free: [PAR, MIN, SIL], routine: ['onion-hair-oil', 'sulphate-free-shampoo', 'gleaming-hair-conditioner-250ml'],
   },
   {
-    handle: 'hair-shampoo-oceandermx', title: 'Hair Shampoo with OceanDerMX', short: 'Hair Shampoo', sub: 'Clean, repair, strengthen', size: '100 ml + 25% extra', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 119, price: 119,
+    handle: 'hair-shampoo-oceandermx', title: 'Hair Shampoo with OceanDerMX', short: 'Hair Shampoo', sub: 'Clean, repair, strengthen', size: '100 ml + 25% extra', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 119, price: 119, est: true,
     desc: 'A plant-based shampoo enriched with OceanDerMX and natural ingredients that gently cleanses, repairs and protects hair from root to tip.',
     helps: ['Removes dirt, oil and build-up', 'Helps repair damaged hair', 'Protects and nourishes', 'Suitable for daily use'],
     works: ['All hair types'],
     ingredients: [OCEAN, { n: 'Organic Aloe Vera', d: 'Hydrates and soothes the scalp.' }, { n: 'Organic Fenugreek', d: 'Nourishes the scalp and hair roots.' }, { n: 'Organic Rosemary Oil', d: 'Conditions the scalp and supports stronger-looking hair.' }, { n: 'Green Tea Extract', d: 'Antioxidant care that refreshes the scalp.' }, { n: 'Keratin and Biotin', d: 'Help strengthen and smooth each strand.' }],
     how: ['Apply to wet hair.', 'Massage gently into scalp and hair.', 'Rinse thoroughly. Use regularly.'],
     free: [PAR, CRU], routine: ['hair-shampoo-oceandermx', 'cleansing-hair-conditioner-100ml', 'hair-mask'],
+  },
+  {
+    handle: 'gentle-cleansing-shampoo', title: 'Gentle Cleansing Shampoo', sub: 'With aloe vera, orange oil and argan oil', size: '100 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 79, price: 79,
+    desc: 'A mild, nourishing shampoo for clean, healthy-looking hair. Aloe vera, orange oil and argan oil cleanse gently and leave hair soft and smooth.',
+    helps: ['Gently cleanses hair and scalp', 'Nourishes and adds smoothness', 'Leaves hair soft and fresh', 'Everyday care for all hair types'],
+    works: ['All hair types', 'Daily use'],
+    ingredients: [{ n: 'Aloe Vera Extract', d: 'Hydrates and soothes the scalp.' }, { n: 'Orange Oil', d: 'Helps cleanse and refresh.' }, ARGAN, VITE, { n: 'Glycerin', d: 'Helps hair hold moisture.' }],
+    how: ['Wet hair thoroughly with water.', 'Rub a little shampoo between your palms, then apply to scalp and lengths.', 'Massage the scalp gently for 2 to 3 minutes and rinse well.'],
+    free: [CRU], routine: ['gentle-cleansing-shampoo', 'cleansing-hair-conditioner-100ml', 'hair-mask'],
   },
   {
     handle: 'herbal-toothpaste', title: 'Herbal Toothpaste', sub: 'Made from 9 traditional herbs', size: '100 gm', type: 'Toothpaste', cat: 'body-hygiene', concerns: [], mrp: 120, price: 102,

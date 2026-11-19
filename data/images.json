@@ -492,5 +492,171 @@
       "file": "06.jpg",
       "alt": "Back-Labeled White Conditioner Bottle"
     }
+  ],
+  "gentle-cleansing-shampoo": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Gentle Cleansing Shampoo Bottle"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Gentle Cleansing Shampoo Advertisement"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "FemZou\u2122 Key Ingredients Infographic"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "FemZou Hair Care Infographic"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "How to Use Shampoo: Three Simple Steps"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "Scalp Care Benefits Beauty Infographic"
+    },
+    {
+      "file": "07.jpg",
+      "alt": "Gentle Cleansing Shampoo Bottle"
+    }
+  ],
+  "hair-mask": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Hair Mask Jar"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Salon-Smooth Waves Beauty Ad"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Frizzy to Sleek Hair Transformation"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "Sleek Hair Before and After"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "How to Use Hair Mask"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "Pink Hair Mask Ingredient Label"
+    },
+    {
+      "file": "07.jpg",
+      "alt": "Pink Hair Mask Jar Product Shot"
+    }
+  ],
+  "kiwi-body-lotion": [
+    {
+      "file": "01.jpg",
+      "alt": "Kiwi Hydrating Body Lotion Bottle"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "Kiwi Deep Hydration Skincare Ad"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Kiwi Hydration for Radiant Skin"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "Kiwi Hydrating Lotion Ingredients"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "Kiwi Hydrating Lotion How-To Guide"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "FemZou Kiwi Lotion Back Label"
+    }
+  ],
+  "aloe-vera-gel": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Aloe Vera Gel Product Shot"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "FemZou Aloe Vera Gel Lid"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "Fresh Aloe Vera Gel Still Life"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "FemZou Aloe Vera Gel Skincare Close-Up"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "Aloe Moisture Repair Gel Poster"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "Before and After Skincare Glow-2"
+    },
+    {
+      "file": "07.jpg",
+      "alt": "Visible Difference: Radiant Skin Journey-1"
+    }
+  ],
+  "cold-cream": [
+    {
+      "file": "01.jpg",
+      "alt": "FemZou Cold Cream Product Display"
+    },
+    {
+      "file": "02.jpg",
+      "alt": "FemZou Cold Cream with Natural Ingredients"
+    },
+    {
+      "file": "03.jpg",
+      "alt": "FemZou Cold Cream Drizzle"
+    },
+    {
+      "file": "04.jpg",
+      "alt": "FemZou Cold Cream in Glossy Pour"
+    },
+    {
+      "file": "05.jpg",
+      "alt": "FemZou Cold Cream Splash Display"
+    },
+    {
+      "file": "06.jpg",
+      "alt": "FemZou Cold Cream Hydration Ad"
+    },
+    {
+      "file": "07.jpg",
+      "alt": "Key Skincare Ingredients Infographic"
+    },
+    {
+      "file": "08.jpg",
+      "alt": "Radiant Pink Cold Cream Advertisement"
+    },
+    {
+      "file": "09.jpg",
+      "alt": "Radiant Skin Before and After"
+    },
+    {
+      "file": "10.jpg",
+      "alt": "FemZou Cold Cream Usage Guide"
+    },
+    {
+      "file": "11.jpg",
+      "alt": "FemZou Cold Cream Safety Promise"
+    },
+    {
+      "file": "12.jpg",
+      "alt": "Naturally Sourced Cold Cream Label"
+    }
   ]
 }

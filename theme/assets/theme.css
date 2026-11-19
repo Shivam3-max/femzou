@@ -929,3 +929,11 @@ html { scroll-padding-top: calc(var(--stick) + 12px); }
 /* recently viewed + toast */
 .recent { border-top: 1px solid var(--line); }
 .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 130; translate: -50% 0; max-width: calc(100% - 32px); padding: 12px 18px; background: var(--ink); color: #fff; border-radius: 10px; font-size: 14px; box-shadow: 0 12px 30px -16px rgba(27,24,21,.6); }
+
+/* long galleries: the thumbnail column scrolls instead of running past the screen */
+@media (min-width: 1000px) {
+  .pdp__thumbs { max-height: calc(100svh - var(--stick) - 40px); overflow-y: auto; scrollbar-width: none; }
+  .pdp__thumbs::-webkit-scrollbar { display: none; }
+  .thumb { flex: none; }
+}
+

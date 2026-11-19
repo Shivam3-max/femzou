@@ -98,6 +98,30 @@ GALLERY = {
         "FEMZOU Gleaming Hair Conditioner Bottle", "FemZou Cleansing Hair Conditioner", "Before and After Hair Transformation",
         "FemZou Hair Conditioner Benefits", "Gleaming Hair Conditioner Usage Guide", "Back-Labeled White Conditioner Bottle",
     ],
+    "gentle-cleansing-shampoo": [
+        "FemZou Gentle Cleansing Shampoo Bottle", "Gentle Cleansing Shampoo Advertisement", "FemZou\u2122 Key Ingredients Infographic",
+        "Femzou Hair Care Infographic", "How to Use Shampoo_ Three Simple Steps", "Scalp Care Benefits Beauty Infographic",
+        "Gentle Cleansing Shampoo Bottle",
+    ],
+    "hair-mask": [
+        "FEMZOU Hair Mask Jar", "Salon-Smooth Waves Beauty Ad", "Frizzy to Sleek Hair Transformation", "Sleek Hair Before and After",
+        "How to Use Hair Mask", "Pink Hair Mask Ingredient Label", "Pink Hair Mask Jar Product Shot",
+    ],
+    "kiwi-body-lotion": [
+        "Kiwi Hydrating Body Lotion Bottle", "Kiwi Deep Hydration Skincare Ad", "Kiwi Hydration for Radiant Skin",
+        "Kiwi Hydrating Lotion Ingredients", "Kiwi Hydrating Lotion How-To Guide", "FEMZOU Kiwi Lotion Back Label",
+    ],
+    "aloe-vera-gel": [
+        "FemZou Aloe Vera Gel Product Shot", "FEMZOU Aloe Vera Gel Lid", "Fresh Aloe Vera Gel Still Life",
+        "FEMZOU Aloe Vera Gel Skincare Close-Up", "Aloe Moisture Repair Gel Poster", "Before and After Skincare Glow-2",
+        "Visible Difference_ Radiant Skin Journey-1",
+    ],
+    "cold-cream": [
+        "FEMZOU Cold Cream Product Display", "FEMZOU Cold Cream with Natural Ingredients", "FEMZOU Cold Cream Drizzle",
+        "FEMZOU Cold Cream in Glossy Pour", "FemZou Cold Cream Splash Display", "Femzou Cold Cream Hydration Ad",
+        "Key Skincare Ingredients Infographic", "Radiant Pink Cold Cream Advertisement", "Radiant Skin Before and After",
+        "FEMZOU Cold Cream Usage Guide", "FEMZOU Cold Cream Safety Promise", "Naturally Sourced Cold Cream Label",
+    ],
 }
 
 # left out on purpose (see docs/SEEDED-DATA.md)
@@ -116,6 +140,9 @@ SKIPPED = {
     "FemZou Dual Acid Facewash Bottle (1)": "duplicate",
     "Back-Label White Pump Bottle (1)": "duplicate",
     "FemZou SPF 50 Sunscreen Product Shot (1)": "duplicate",
+    "Aloe, Almond, and Shea Ingredients": "shows almond oil and shea butter for the aloe gel; no label confirms them",
+    "FemZou Cold Cream_ How to Use": "near-duplicate of the cold cream usage guide",
+    "Femzou Cold Cream Safety Promise (1)": "near-duplicate of the cold cream safety promise",
 }
 
 

@@ -69,7 +69,7 @@ const run = async () => {
   check('home articles', count(home, /class="art"/g), 3);
   check('home trust', count(home, /class="trust__i"/g), 5);
   check('home cards', count(home, /class="pc[ "]/g), gte(24));
-  check('home placeholders', count(home, /class="ph"/g), gte(50));
+  check('home placeholders', count(home, /class="ph"/g), gte(20));
 
   for (const p of CAT.products) {
     const html = await get(`/products/${p.handle}`);
