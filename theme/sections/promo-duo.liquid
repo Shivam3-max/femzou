@@ -1,3 +1,6 @@
+{%- assign has_art = false -%}
+{%- for block in section.blocks -%}{%- if block.settings.image != blank -%}{%- assign has_art = true -%}{%- endif -%}{%- endfor -%}
+{%- if has_art or settings.placeholder_labels -%}
 <section class="sec sec--tight">
   <div class="wrap duo">
     {%- for block in section.blocks -%}
@@ -8,6 +11,7 @@
     {%- endfor -%}
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

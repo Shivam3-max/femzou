@@ -25,7 +25,7 @@
     <label class="sort">
       <span>Sort</span>
       <select data-sort aria-label="Sort products">
-        {%- assign sort_now = collection.sort_by | default: collection.default_sort_by -%}
+        {%- assign sort_now = collection.sort_by | default: 'manual' -%}
         <option value="manual"{% if sort_now == 'manual' %} selected{% endif %}>Featured</option>
         <option value="price-ascending"{% if sort_now == 'price-ascending' %} selected{% endif %}>Price, low to high</option>
         <option value="price-descending"{% if sort_now == 'price-descending' %} selected{% endif %}>Price, high to low</option>
@@ -37,8 +37,8 @@
   <p class="coll__count"><span data-filter-count>{{ collection.products_count }}</span> products</p>
 
   <div class="grid" data-filter-grid>
-    {%- comment -%} With the default sort, products that have photos lead; any chosen sort is kept as is. {%- endcomment -%}
-    {%- assign sort_now = collection.sort_by | default: collection.default_sort_by -%}
+    {%- comment -%} Until the shopper picks a sort, products that have photos lead; a chosen sort is kept as is. {%- endcomment -%}
+    {%- assign sort_now = collection.sort_by | default: 'manual' -%}
     {%- if sort_now == 'manual' or sort_now == blank -%}
       {%- for p in collection.products -%}{%- if p.featured_image -%}{%- render 'product-card', card_product: p -%}{%- endif -%}{%- endfor -%}
       {%- for p in collection.products -%}{%- unless p.featured_image -%}{%- render 'product-card', card_product: p -%}{%- endunless -%}{%- endfor -%}

@@ -2,6 +2,7 @@
 {%- assign current = product.selected_or_first_available_variant -%}
 {%- assign cat = collections[fz.category.value] -%}
 {%- assign gallery_count = section.settings.gallery_placeholders -%}
+{%- unless settings.placeholder_labels -%}{%- assign gallery_count = 1 -%}{%- endunless -%}
 <div class="wrap crumbs">
   <a href="{{ routes.root_url }}">Home</a><span>/</span>
   {%- if cat -%}<a href="{{ cat.url }}">{{ cat.title }}</a><span>/</span>{%- endif -%}

@@ -1,12 +1,21 @@
-<section class="hero" data-hero aria-roledescription="carousel" aria-label="Featured">
+{%- comment -%}
+  Banners. Each banner can have a wide desktop artwork and a tall phone artwork.
+  When no banner has desktop artwork yet, desktop shows the phone artworks side
+  by side as cards instead of an empty wide slot.
+{%- endcomment -%}
+{%- assign has_desktop = false -%}
+{%- for block in section.blocks -%}{%- if block.settings.image != blank -%}{%- assign has_desktop = true -%}{%- endif -%}{%- endfor -%}
+<section class="hero{% unless has_desktop %} hero--cards{% endunless %}" data-hero aria-roledescription="carousel" aria-label="{{ section.settings.label | escape }}">
   <div class="hero__frame">
     <div class="hero__track" data-hero-track>
       {%- for block in section.blocks -%}
         <a class="hero__slide" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
           {%- capture lbl -%}Hero banner {{ forloop.index }}{%- endcapture -%}
-          {%- render 'media-slot', image: block.settings.image, label: lbl, spec: 'Desktop 1920 × 640', class_name: 'slot--hero slot--desk', alt_text: block.settings.alt, widths_attr: '100vw' -%}
+          {%- if has_desktop -%}
+            {%- render 'media-slot', image: block.settings.image, label: lbl, spec: 'Desktop 1920 × 640', class_name: 'slot--hero slot--desk', alt_text: block.settings.alt, widths_attr: '100vw' -%}
+          {%- endif -%}
           {%- assign phone_img = block.settings.image_mobile | default: block.settings.image -%}
-          {%- render 'media-slot', image: phone_img, label: lbl, spec: 'Phone 1080 × 1350', class_name: 'slot--hero slot--phone', alt_text: block.settings.alt, widths_attr: '100vw' -%}
+          {%- render 'media-slot', image: phone_img, label: lbl, spec: 'Phone 1350 × 1650', class_name: 'slot--hero slot--phone', alt_text: block.settings.alt, widths_attr: '(min-width: 760px) 33vw, 100vw' -%}
         </a>
       {%- endfor -%}
     </div>
@@ -26,10 +35,13 @@
 {
   "name": "Hero banners",
   "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "label", "label": "Accessible name", "default": "Featured" }
+  ],
   "blocks": [
     { "type": "banner", "name": "Banner", "settings": [
-      { "type": "image_picker", "id": "image", "label": "Desktop artwork", "info": "1920 × 640. Put all text in the artwork." },
-      { "type": "image_picker", "id": "image_mobile", "label": "Phone artwork", "info": "1080 × 1350." },
+      { "type": "image_picker", "id": "image", "label": "Desktop artwork", "info": "1920 × 640. Put all text in the artwork. Leave every banner's desktop artwork empty to show the phone artworks side by side on desktop." },
+      { "type": "image_picker", "id": "image_mobile", "label": "Phone artwork", "info": "1350 × 1650." },
       { "type": "text", "id": "alt", "label": "Image description" },
       { "type": "url", "id": "link", "label": "Link" }
     ] }

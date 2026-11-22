@@ -1,7 +1,9 @@
 <section class="sec sec--tight">
   <div class="wrap split{% if section.settings.flip %} split--flip{% endif %}">
     <div class="split__media">
-      {%- render 'media-slot', image: section.settings.image, label: section.settings.image_label, spec: '1200 × 900', class_name: 'slot--split', alt_text: section.settings.heading, widths_attr: '(min-width: 900px) 50vw, 100vw' -%}
+      {%- assign fp = section.settings.product -%}
+      {%- assign pic = section.settings.image | default: fp.images[1] | default: fp.featured_image -%}
+      {%- render 'media-slot', image: pic, label: section.settings.image_label, spec: '1200 × 900', class_name: 'slot--split', alt_text: section.settings.heading, widths_attr: '(min-width: 900px) 50vw, 100vw' -%}
     </div>
     <div class="split__copy">
       <p class="eyebrow">{{ section.settings.eyebrow }}</p>
@@ -17,6 +19,7 @@
   "name": "Image and text",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Image", "info": "1200 × 900" },
+    { "type": "product", "id": "product", "label": "Use a product photo when no image is chosen" },
     { "type": "text", "id": "image_label", "label": "Placeholder label", "default": "Feature image" },
     { "type": "checkbox", "id": "flip", "label": "Image on the right", "default": false },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Feature" },

@@ -145,7 +145,8 @@
           "category_13"
         ]
       }
-    }
+    },
+    "placeholder_labels": false
   },
   "presets": {
     "Default": {}

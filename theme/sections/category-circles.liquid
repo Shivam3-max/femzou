@@ -4,7 +4,9 @@
       {%- for block in section.blocks -%}
         {%- assign c = block.settings.collection -%}
         <a class="circle" href="{{ c.url }}" {{ block.shopify_attributes }}>
-          {%- render 'media-slot', image: block.settings.image, label: '', class_name: 'slot--circle', alt_text: c.title, widths_attr: '160px' -%}
+          {%- assign pic = block.settings.image | default: c.image -%}
+          {%- unless pic -%}{%- for p in c.products limit: 30 -%}{%- if p.featured_image -%}{%- assign pic = p.featured_image -%}{%- break -%}{%- endif -%}{%- endfor -%}{%- endunless -%}
+          {%- render 'media-slot', image: pic, label: '', class_name: 'slot--circle', alt_text: c.title, widths_attr: '160px' -%}
           <span>{{ block.settings.label | default: c.title }}</span>
         </a>
       {%- endfor -%}

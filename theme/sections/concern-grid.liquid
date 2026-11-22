@@ -8,7 +8,9 @@
       {%- for block in section.blocks -%}
         {%- assign c = block.settings.collection -%}
         <a class="concern" href="{{ c.url }}" {{ block.shopify_attributes }}>
-          {%- render 'media-slot', image: block.settings.image, label: 'Concern image', spec: '800 × 1000', class_name: 'slot--concern', alt_text: c.title, widths_attr: '(min-width: 1000px) 17vw, 50vw' -%}
+          {%- assign pic = block.settings.image | default: c.image -%}
+          {%- unless pic -%}{%- for p in c.products limit: 30 -%}{%- if p.featured_image -%}{%- assign pic = p.featured_image -%}{%- break -%}{%- endif -%}{%- endfor -%}{%- endunless -%}
+          {%- render 'media-slot', image: pic, label: 'Concern image', spec: '800 × 1000', class_name: 'slot--concern', alt_text: c.title, widths_attr: '(min-width: 1000px) 17vw, 50vw' -%}
           <strong>{{ c.title }}</strong>
           <span>{{ c.products_count }} products</span>
         </a>

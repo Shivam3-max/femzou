@@ -77,7 +77,9 @@
         {%- for block in section.blocks -%}
           {%- assign c = block.settings.collection -%}
           <a class="catbar__i{% if c.handle == active_cat %} is-on{% endif %}" href="{{ c.url }}"{% if c.handle == active_cat %} aria-current="page"{% endif %} {{ block.shopify_attributes }}>
-            {%- render 'media-slot', image: block.settings.image, label: '', class_name: 'slot--chip', alt_text: '', widths_attr: '64px' -%}
+            {%- assign pic = block.settings.image | default: c.image -%}
+          {%- unless pic -%}{%- for p in c.products limit: 20 -%}{%- if p.featured_image -%}{%- assign pic = p.featured_image -%}{%- break -%}{%- endif -%}{%- endfor -%}{%- endunless -%}
+          {%- render 'media-slot', image: pic, label: '', class_name: 'slot--chip', alt_text: '', widths_attr: '64px' -%}
             <span>{{ block.settings.label | default: c.title }}</span>
           </a>
         {%- endfor -%}

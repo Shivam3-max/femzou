@@ -5,15 +5,27 @@
       "blocks": {
         "banner_1": {
           "type": "banner",
-          "settings": {}
+          "settings": {
+            "image_mobile": "shopify://shop_images/femzou-banner-mobile-1.jpg",
+            "alt": "Refresh your skin with natural care: Dual Acid Power Facewash and Rose Mist",
+            "link": "/collections/face-care"
+          }
         },
         "banner_2": {
           "type": "banner",
-          "settings": {}
+          "settings": {
+            "image_mobile": "shopify://shop_images/femzou-banner-mobile-2.jpg",
+            "alt": "Everyday care for clean and hydrated skin: Glutathione Foaming Facewash and Peach Body Lotion",
+            "link": "/collections/bestsellers"
+          }
         },
         "banner_3": {
           "type": "banner",
-          "settings": {}
+          "settings": {
+            "image_mobile": "shopify://shop_images/femzou-banner-mobile-3.jpg",
+            "alt": "Your daily dose of sun protection: FemZou Tinted Sunscreen SPF 50",
+            "link": "/products/sunscreen-spf-50"
+          }
         }
       },
       "block_order": [
@@ -191,7 +203,8 @@
         "text": "Our professional line pairs keratin, rosemary oil and argan oil for hair that looks smoother, stronger and shinier.",
         "button": "Explore Professional",
         "link": "/collections/professional"
-      }
+      },
+      "disabled": true
     },
     "ingredients": {
       "type": "ingredient-row",
@@ -245,7 +258,8 @@
         "heading": "Meet OceanDerMX.",
         "text": "A marine active complex found across our hydrating cleansers and hair care. It helps skin and scalp hold on to moisture and stay protected.",
         "button": "Shop OceanDerMX",
-        "link": "/search?q=OceanDerMX&type=product"
+        "link": "/search?q=OceanDerMX&type=product",
+        "product": "hydrating-face-cleanser-250ml"
       }
     },
     "trust": {
@@ -314,8 +328,8 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "step": "Treat",
-            "product": "vitamin-c-face-serum"
+            "step": "Tone",
+            "product": "rose-mist"
           }
         },
         "step_3": {
@@ -335,8 +349,8 @@
     "spot1": {
       "type": "product-spotlight",
       "settings": {
-        "product": "onion-hair-oil",
-        "eyebrow": "Hair care bestseller"
+        "product": "glutathione-foaming-facewash",
+        "eyebrow": "Face care favourite"
       }
     },
     "spot2": {

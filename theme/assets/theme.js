@@ -30,6 +30,7 @@
     p.classList.add('is-open');
     scrim.classList.add('is-on');
     document.body.classList.add('locked');
+    document.body.dataset.panel = name; /* lets the sticky header rise above the scrim for the nav panel */
     (p.querySelector('[data-search-input]') || p.querySelector('[data-close]'))?.focus({ preventScroll: true });
   }
   function closePanels() {
@@ -41,6 +42,7 @@
     scrim?.classList.remove('is-on');
     setTimeout(() => { if (!scrim?.classList.contains('is-on') && scrim) scrim.hidden = true; }, 240);
     document.body.classList.remove('locked');
+    delete document.body.dataset.panel;
     lastFocus?.focus?.();
     lastFocus = null;
   }
@@ -89,21 +91,31 @@
       track.style.transform = `translateX(${-100 * i}%)`;
       dots.forEach((d, x) => d.classList.toggle('is-on', x === i));
     };
-    const start = () => { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => go(i + 1), 6000); };
-    const stop = () => clearInterval(timer);
-    $('[data-hero-prev]', h)?.addEventListener('click', () => go(i - 1));
-    $('[data-hero-next]', h)?.addEventListener('click', () => go(i + 1));
-    dots.forEach((d) => d.addEventListener('click', () => go(Number(d.dataset.heroDot))));
-    h.addEventListener('mouseenter', stop);
-    h.addEventListener('mouseleave', start);
+    /* Reduced motion keeps the rotation but drops the slide animation. */
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) track.style.transition = 'none';
+    /* One timer at most: every start clears the last. Touch never pauses on
+       "hover" (phones fire a fake mouseenter on tap and no mouseleave), and a
+       hidden tab pauses until it is shown again. */
+    const stop = () => { clearInterval(timer); timer = null; };
+    const start = () => { stop(); if (!document.hidden) timer = setInterval(() => go(i + 1), 6000); };
+    const restart = () => { if (timer) start(); };
+    $('[data-hero-prev]', h)?.addEventListener('click', () => { go(i - 1); restart(); });
+    $('[data-hero-next]', h)?.addEventListener('click', () => { go(i + 1); restart(); });
+    dots.forEach((d) => d.addEventListener('click', () => { go(Number(d.dataset.heroDot)); restart(); }));
+    h.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') stop(); });
+    h.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') start(); });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
     let x0 = null;
     h.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; stop(); }, { passive: true });
-    h.addEventListener('touchend', (e) => {
-      if (x0 === null) return;
-      const dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    const touchDone = (e) => {
+      if (x0 !== null && e.changedTouches?.[0]) {
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      }
       x0 = null; start();
-    });
+    };
+    h.addEventListener('touchend', touchDone);
+    h.addEventListener('touchcancel', touchDone);
     start();
   });
 

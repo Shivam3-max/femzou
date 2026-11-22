@@ -52,7 +52,8 @@ const run = async () => {
   const home = await get('/');
   chrome(home, 'home');
   check('home hero banners', count(home, /class="hero__slide"/g), 3);
-  check('home desktop hero slots', count(home, /slot--hero slot--desk/g), 3);
+  check('home hero in card mode (phone artwork only)', count(home, /class="hero hero--cards"/g), 1);
+  check('home hero banner images', count(home, /src="\/media\/_banners\/femzou-banner-mobile-[123]\.jpg"/g), 3);
   check('home phone hero slots', count(home, /slot--hero slot--phone/g), 3);
   check('home dots', count(home, /class="hero__dot[ "]/g), 3);
   check('home circles', count(home, /class="circle"/g), 6);
@@ -65,11 +66,14 @@ const run = async () => {
   check('home statement rule', count(home, /class="statement__rule"/g), 1);
   check('home spotlights', count(home, /class="sec spot/g), 2);
   check('home spotlight photos', count(home, /data-spot-src="\/media\//g), gte(8));
-  check('home splits', count(home, /class="split__h"/g), 2);
+  check('home splits (Professional hidden until photos)', count(home, /class="split__h"/g), 1);
+  check('home spotlight is Glutathione', count(home, /class="spot__h">Glutathione Foaming Facewash</g), 1);
+  check('home routine steps use photographed products', count(home, /class="rstep"[\s\S]{0,400}?<img /g), 3);
   check('home articles', count(home, /class="art"/g), 3);
   check('home trust', count(home, /class="trust__i"/g), 5);
   check('home cards', count(home, /class="pc[ "]/g), gte(24));
-  check('home placeholders', count(home, /class="ph"/g), gte(20));
+  check('home has no size-label placeholders', count(home, /class="ph__l"/g), 0);
+  check('home empty promo banners hidden', count(home, /class="wrap duo"/g), 0);
 
   for (const p of CAT.products) {
     const html = await get(`/products/${p.handle}`);
@@ -77,7 +81,7 @@ const run = async () => {
     chrome(html, w);
     check(`${w} title`, count(html, /class="pdp__title"/g), 1);
     check(`${w} name`, html.includes(p.title.replace(/&/g, '&')) || html.includes(p.title.replace(/&/g, '&amp;')), true);
-    const shots = PHOTOS[p.handle] ? PHOTOS[p.handle].length : 5;
+    const shots = PHOTOS[p.handle] ? PHOTOS[p.handle].length : 1;
     check(`${w} gallery slots`, count(html, /class="pdp__shot/g), shots);
     check(`${w} thumbs`, count(html, /class="thumb/g), shots);
     check(`${w} zoomable photos`, count(html, /data-full="\/media\//g), PHOTOS[p.handle] ? shots : 0);

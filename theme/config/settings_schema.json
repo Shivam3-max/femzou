@@ -1,27 +1,128 @@
 [
-  { "name": "theme_info", "theme_name": "FemZou", "theme_version": "1.0.0", "theme_author": "RelyTask", "theme_documentation_url": "https://femzou.com", "theme_support_email": "macvisionbiotech@gmail.com" },
-  { "name": "Brand", "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Logo", "info": "Leave empty to use the FemZou wordmark." },
-    { "type": "range", "id": "logo_width", "label": "Logo width", "min": 80, "max": 240, "step": 4, "unit": "px", "default": 132 }
-  ] },
-  { "name": "Product images", "settings": [
-    { "type": "select", "id": "product_image_ratio", "label": "Product image shape", "default": "1 / 1", "options": [
-      { "value": "1 / 1", "label": "Square" }, { "value": "4 / 5", "label": "Portrait 4:5" }, { "value": "3 / 4", "label": "Portrait 3:4" }
-    ] }
-  ] },
-  { "name": "Store promises", "settings": [
-    { "type": "number", "id": "free_shipping_rupees", "label": "Free shipping above (₹)", "default": 499 },
-    { "type": "checkbox", "id": "cod_available", "label": "Cash on delivery available", "default": true },
-    { "type": "text", "id": "dispatch_line", "label": "Dispatch line", "default": "Dispatched in 1 to 3 business days" }
-  ] },
-  { "name": "Contact", "settings": [
-    { "type": "text", "id": "contact_phone", "label": "Phone", "default": "+91 70185 32162" },
-    { "type": "text", "id": "contact_email", "label": "Email", "default": "macvisionbiotech@gmail.com" },
-    { "type": "textarea", "id": "contact_address", "label": "Address" }
-  ] },
-  { "name": "Social", "settings": [
-    { "type": "url", "id": "social_instagram", "label": "Instagram" },
-    { "type": "url", "id": "social_facebook", "label": "Facebook" },
-    { "type": "url", "id": "social_threads", "label": "Threads" }
-  ] }
+  {
+    "name": "theme_info",
+    "theme_name": "FemZou",
+    "theme_version": "1.0.0",
+    "theme_author": "RelyTask",
+    "theme_documentation_url": "https://femzou.com",
+    "theme_support_email": "macvisionbiotech@gmail.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo",
+        "info": "Leave empty to use the FemZou wordmark."
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Logo width",
+        "min": 80,
+        "max": 240,
+        "step": 4,
+        "unit": "px",
+        "default": 132
+      }
+    ]
+  },
+  {
+    "name": "Images",
+    "settings": [
+      {
+        "type": "select",
+        "id": "product_image_ratio",
+        "label": "Product image shape",
+        "default": "1 / 1",
+        "options": [
+          {
+            "value": "1 / 1",
+            "label": "Square"
+          },
+          {
+            "value": "4 / 5",
+            "label": "Portrait 4:5"
+          },
+          {
+            "value": "3 / 4",
+            "label": "Portrait 3:4"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "placeholder_labels",
+        "label": "Show size labels on empty image slots",
+        "info": "Turn on while adding artwork. Off shows a quiet FemZou tile and hides empty banners.",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Store promises",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_rupees",
+        "label": "Free shipping above (₹)",
+        "default": 499
+      },
+      {
+        "type": "checkbox",
+        "id": "cod_available",
+        "label": "Cash on delivery available",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "dispatch_line",
+        "label": "Dispatch line",
+        "default": "Dispatched in 1 to 3 business days"
+      }
+    ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone",
+        "default": "+91 70185 32162"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email",
+        "default": "macvisionbiotech@gmail.com"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_address",
+        "label": "Address"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_threads",
+        "label": "Threads"
+      }
+    ]
+  }
 ]

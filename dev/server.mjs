@@ -146,6 +146,8 @@ F('image_tag', (url, ...args) => {
 });
 F('money', money);
 F('money_without_trailing_zeros', money);
+/* Shopify INR: 28000 -> "280.00", 103900 -> "1,039.00" */
+F('money_without_currency', (c) => (Number(c || 0) / 100).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 F('handle', handleize);
 F('handleize', handleize);
 F('json', (v) => JSON.stringify(v));
@@ -244,6 +246,11 @@ async function renderSection(key, def, globals) {
       if (typeof v !== 'string' || !v) continue;
       if (d.type === 'collection') target[d.id] = collections[v] || null;
       if (d.type === 'product') target[d.id] = P(v) || null;
+      /* image pickers store shopify://shop_images/<file>; locally those files live in catalog/images/_banners */
+      if (d.type === 'image_picker' && v.startsWith('shopify://shop_images/')) {
+        const name = v.slice('shopify://shop_images/'.length);
+        target[d.id] = fs.existsSync(path.join(ROOT, 'catalog/images/_banners', name)) ? { src: `/media/_banners/${name}`, alt: '', width: 1350, height: 1650 } : null;
+      }
     }
   };
   resolve(section._schema?.settings, section.settings);

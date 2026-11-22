@@ -5,9 +5,11 @@
     <p class="abouthero__p">{{ section.settings.text }}</p>
   </div>
 </section>
+{%- if section.settings.image or settings.placeholder_labels -%}
 <section class="wrap">
   {%- render 'media-slot', image: section.settings.image, label: 'About banner', spec: '1920 × 720', class_name: 'slot--about', alt_text: section.settings.heading, widths_attr: '100vw' -%}
 </section>
+{%- endif -%}
 <section class="sec">
   <div class="wrap trio">
     {%- for block in section.blocks -%}

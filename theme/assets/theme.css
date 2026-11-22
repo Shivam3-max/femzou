@@ -583,6 +583,8 @@ h1, h2, h3, .head__h, .panel__title { letter-spacing: -.015em; }
 
 /* Shopify wraps each section in a div, so stickiness belongs on the wrapper */
 #shopify-section-header { position: sticky; top: 0; z-index: 60; }
+/* the nav drawer lives inside the sticky header's stacking context: lift the header above the scrim (z 90) while it is open */
+body[data-panel="nav"] #shopify-section-header { z-index: 95; }
 .hdr { position: relative; }
 
 /* product tiles stay clean: crop marks only on banners */
@@ -936,4 +938,24 @@ html { scroll-padding-top: calc(var(--stick) + 12px); }
   .pdp__thumbs::-webkit-scrollbar { display: none; }
   .thumb { flex: none; }
 }
+
+/* live-store placeholder: a quiet FemZou tile instead of a size label */
+.ph--brand { --m: 0px; background: var(--ivory); }
+.ph__mark { font-family: var(--brand); font-variant-caps: small-caps; font-size: clamp(18px, 2.2vw, 26px); letter-spacing: .06em; color: #c9bfb1; }
+.slot--chip .ph__mark, .slot--thumb .ph__mark, .slot--circle .ph__mark { display: none; }
+.sec--ivory .ph--brand { background: var(--sand); }
+.art__rule { display: block; height: 2px; width: 44px; background: var(--gold); margin-bottom: 4px; }
+
+/* hero: phone artwork is 1350 x 1650 */
+.slot--phone { aspect-ratio: 1350 / 1650; }
+/* no desktop artwork yet: the phone banners sit side by side as cards */
+@media (min-width: 760px) {
+  .hero--cards .hero__frame { overflow: visible; border-radius: 0; }
+  .hero--cards .hero__track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; transform: none !important; }
+  .hero--cards .hero__slide { border-radius: var(--r); overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+  .hero--cards .hero__slide:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -24px rgba(27,24,21,.45); }
+  .hero--cards .slot--phone { display: block; }
+  .hero--cards .hero__arrow, .hero--cards .hero__dots { display: none; }
+}
+@media (min-width: 760px) and (max-width: 999px) { .hero--cards .hero__track { gap: 10px; } }
 
