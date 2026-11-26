@@ -30,7 +30,7 @@
     p.classList.add('is-open');
     scrim.classList.add('is-on');
     document.body.classList.add('locked');
-    document.body.dataset.panel = name; /* lets the sticky header rise above the scrim for the nav panel */
+    document.body.dataset.openPanel = name; /* lets the sticky header rise above the scrim for the nav panel */
     (p.querySelector('[data-search-input]') || p.querySelector('[data-close]'))?.focus({ preventScroll: true });
   }
   function closePanels() {
@@ -42,7 +42,7 @@
     scrim?.classList.remove('is-on');
     setTimeout(() => { if (!scrim?.classList.contains('is-on') && scrim) scrim.hidden = true; }, 240);
     document.body.classList.remove('locked');
-    delete document.body.dataset.panel;
+    delete document.body.dataset.openPanel;
     lastFocus?.focus?.();
     lastFocus = null;
   }
@@ -65,9 +65,15 @@
     const show = () => { clearTimeout(t); closeMegas(m); m.classList.add('is-open'); b.setAttribute('aria-expanded', 'true'); };
     const hide = () => { t = setTimeout(() => { m.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false'); }, 120); };
     /* hover opens for a mouse only; on tablets a tap toggles, so one tap never opens and closes */
-    m.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') show(); });
-    m.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hide(); });
-    b.addEventListener('click', () => (m.classList.contains('is-open') ? hide() : show()));
+    /* a mouse click on a menu the pointer already opened by hovering keeps it
+       open (otherwise hover opens it and the click instantly shuts it) */
+    let hovered = false;
+    m.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hovered = true; show(); } });
+    m.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { hovered = false; hide(); } });
+    b.addEventListener('click', () => {
+      if (hovered && m.classList.contains('is-open')) return;
+      m.classList.contains('is-open') ? hide() : show();
+    });
     m.addEventListener('focusout', (e) => { if (e.relatedTarget && !m.contains(e.relatedTarget)) hide(); });
   });
   document.addEventListener('click', (e) => { if (!e.target.closest('[data-mega]')) closeMegas(); });

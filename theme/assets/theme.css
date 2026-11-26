@@ -584,7 +584,7 @@ h1, h2, h3, .head__h, .panel__title { letter-spacing: -.015em; }
 /* Shopify wraps each section in a div, so stickiness belongs on the wrapper */
 #shopify-section-header { position: sticky; top: 0; z-index: 60; }
 /* the nav drawer lives inside the sticky header's stacking context: lift the header above the scrim (z 90) while it is open */
-body[data-panel="nav"] #shopify-section-header { z-index: 95; }
+body[data-open-panel="nav"] #shopify-section-header { z-index: 95; }
 .hdr { position: relative; }
 
 /* product tiles stay clean: crop marks only on banners */

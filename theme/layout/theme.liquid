@@ -15,7 +15,7 @@
   {{ 'theme.css' | asset_url | stylesheet_tag }}
   <style>:root{--img-ratio:{{ settings.product_image_ratio | default: '1 / 1' }}}</style>
   <script>window.FZ={moneySym:'₹',freeShip:{{ settings.free_shipping_rupees | default: 499 | times: 100 }},routes:{cart:'{{ routes.cart_url }}',add:'{{ routes.cart_add_url }}.js',change:'{{ routes.cart_change_url }}.js',suggest:'{{ routes.predictive_search_url }}.json'}};</script>
-  {{ 'theme.js' | asset_url | script_tag }}
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
   {{ content_for_header }}
 </head>
 <body class="tpl-{{ template.name }}">

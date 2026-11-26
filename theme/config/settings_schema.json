@@ -5,7 +5,7 @@
     "theme_version": "1.0.0",
     "theme_author": "RelyTask",
     "theme_documentation_url": "https://femzou.com",
-    "theme_support_email": "macvisionbiotech@gmail.com"
+    "theme_support_email": "femzou22@gmail.com"
   },
   {
     "name": "Brand",
@@ -96,7 +96,7 @@
         "type": "text",
         "id": "contact_email",
         "label": "Email",
-        "default": "macvisionbiotech@gmail.com"
+        "default": "femzou22@gmail.com"
       },
       {
         "type": "textarea",
