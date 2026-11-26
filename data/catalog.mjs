@@ -29,7 +29,7 @@ const SAL = { n: 'Salicylic Acid', d: 'Works inside pores to help keep them clea
 
 const lotion = (fruit, handle, line, note) => ({
   handle, title: `${fruit} Skin Hydrating Body Lotion`, short: `${fruit} Body Lotion`, sub: line, size: '250 ml', type: 'Body Lotion', cat: 'body-hygiene', concerns: ['dry-skin'],
-  mrp: 249, price: 199,
+  mrp: 249, price: 249,
   desc: `A refreshing, nourishing body lotion with ${note}. It keeps skin soft, smooth and comfortable all day.`,
   helps: ['Locks in moisture', 'Improves skin softness', 'Leaves a light, fresh scent', 'Comfortable all-day wear'],
   works: ['All skin types', 'Daily use'],
@@ -43,7 +43,7 @@ const lotion = (fruit, handle, line, note) => ({
 
 export const products = [
   {
-    handle: 'hair-mask', title: 'Hair Mask', sub: 'Nourish, repair and shine', size: '500 gm', type: 'Hair Mask', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 1899, price: 1519, best: true,
+    handle: 'hair-mask', title: 'Hair Mask', sub: 'Nourish, repair and shine', size: '500 gm', type: 'Hair Mask', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 1899, price: 1899, best: true,
     desc: 'A deep conditioning treatment enriched with natural extracts and vitamins. It works into the hair shaft to help repair damage, reduce frizz and restore moisture balance.',
     helps: ['Deeply nourishes dry, frizzy hair', 'Strengthens from root to tip', 'Restores natural shine', 'Helps protect from heat and colour stress'],
     works: ['All hair types', 'Men and women'],
@@ -52,7 +52,7 @@ export const products = [
     free: [], routine: ['sulphate-free-shampoo', 'gleaming-hair-conditioner-250ml', 'hair-mask'],
   },
   {
-    handle: 'dual-acid-power-facewash', title: 'Dual Acid Power Facewash', sub: 'With glycolic and salicylic acid', size: '100 ml', type: 'Cleanser', cat: 'face-care', concerns: ['acne-oily', 'dull-tan'], mrp: 349, price: 280, best: true,
+    handle: 'dual-acid-power-facewash', title: 'Dual Acid Power Facewash', sub: 'With glycolic and salicylic acid', size: '100 ml', type: 'Cleanser', cat: 'face-care', concerns: ['acne-oily', 'dull-tan'], mrp: 349, price: 349, best: true,
     desc: 'A daily cleanser built on the combination of glycolic and salicylic acid. It cleanses deeply, clears excess oil and impurities and helps refine skin texture and tone.',
     helps: ['Deeply cleanses and removes impurities', 'Helps keep pores clear', 'Exfoliates dead skin cells', 'Helps even the look of skin tone'],
     works: ['All skin types', 'Especially oily and combination skin'],
@@ -61,7 +61,7 @@ export const products = [
     free: [PAR], routine: ['dual-acid-power-facewash', 'vitamin-c-face-serum', 'sunscreen-spf-50'],
   },
   {
-    handle: 'hair-cleanser', title: 'Hair Cleanser with OceanDerMX', short: 'Hair Cleanser', sub: 'Restore and protect', size: '250 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 349, price: 349, best: true,
+    handle: 'hair-cleanser', title: 'Hair Cleanser with OceanDerMX', short: 'Hair Cleanser', sub: 'Restore and protect', size: '250 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 669, price: 669, best: true,
     desc: 'A gentle, effective cleanser enriched with OceanDerMX and plant-based ingredients. It cleanses, nourishes and helps restore the natural balance of hair and scalp, leaving hair soft and manageable.',
     helps: ['Deeply cleanses hair and scalp', 'Nourishes hair roots', 'Helps restore moisture balance', 'Leaves hair soft and shiny'],
     works: ['All hair types', 'Daily use'],
@@ -70,7 +70,7 @@ export const products = [
     free: [], routine: ['hair-cleanser', 'gleaming-hair-conditioner-250ml', 'hair-mask'],
   },
   {
-    handle: 'ha-vitamin-c-foaming-face-wash', title: 'HA + Vitamin C Foaming Face Wash', sub: 'With OceanDerMX', size: '60 ml', type: 'Cleanser', cat: 'face-care', concerns: ['dull-tan'], mrp: 249, price: 199,
+    handle: 'ha-vitamin-c-foaming-face-wash', title: 'HA + Vitamin C Foaming Face Wash', sub: 'With OceanDerMX', size: '60 ml', type: 'Cleanser', cat: 'face-care', concerns: ['dull-tan'], mrp: 249, price: 249,
     desc: 'A gentle foaming face wash that cleanses deeply and brightens, while helping restore the skin\'s natural glow.',
     helps: ['Deeply cleanses and removes impurities', 'Brightens and improves radiance', 'Helps protect the skin barrier', 'Light and gentle'],
     works: ['All skin types', 'Daily use'],
@@ -79,7 +79,7 @@ export const products = [
     free: [SUL, CRU, PAR], routine: ['ha-vitamin-c-foaming-face-wash', 'vitamin-c-face-serum', 'sunscreen-spf-50'],
   },
   {
-    handle: 'advance-hair-growth-serum', title: 'Advance Hair Growth Serum', sub: 'Formulated to support stronger follicles', size: '60 ml', type: 'Hair Serum', cat: 'hair-care', concerns: ['hair-fall'], mrp: 1299, price: 1039,
+    handle: 'advance-hair-growth-serum', title: 'Advance Hair Growth Serum', sub: 'Formulated to support stronger follicles', size: '60 ml', type: 'Hair Serum', cat: 'hair-care', concerns: ['hair-fall'], mrp: 1299, price: 1299,
     desc: 'A blend of well-known scalp actives that nourishes the scalp and strengthens follicles, formulated to support fuller, healthier-looking hair.',
     helps: ['Nourishes the scalp', 'Strengthens hair follicles', 'Helps reduce breakage', 'Improves hair texture and shine'],
     works: ['All hair types', 'Men and women'],
@@ -88,7 +88,7 @@ export const products = [
     free: [PAR, SUL, CRU, DER], routine: ['sulphate-free-shampoo', 'onion-hair-oil', 'advance-hair-growth-serum'],
   },
   {
-    handle: 'cleansing-hair-conditioner-100ml', title: 'Cleansing Hair Conditioner', sub: 'Nourishes and hydrates', size: '100 ml + 25% extra', type: 'Conditioner', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 219, price: 175,
+    handle: 'cleansing-hair-conditioner-100ml', title: 'Cleansing Hair Conditioner', sub: 'Nourishes and hydrates', size: '100 ml + 25% extra', type: 'Conditioner', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 219, price: 219,
     desc: 'Formulated to nourish, hydrate and strengthen hair from root to tip. Natural botanical extracts help restore moisture, improve manageability and leave hair soft and smooth.',
     helps: ['Replenishes moisture', 'Reduces breakage', 'Detangles and tames frizz', 'Restores natural shine'],
     works: ['Dry and damaged hair', 'Frizzy or chemically treated hair'],
@@ -97,7 +97,7 @@ export const products = [
     free: [SUL, PAR, SIL], routine: ['hair-shampoo-oceandermx', 'cleansing-hair-conditioner-100ml', 'hair-mask'],
   },
   {
-    handle: 'sulphate-free-shampoo', title: 'Shampoo for Healthy Hair Growth', short: 'Sulphate Free Shampoo', sub: '8X advance care', size: '500 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['hair-fall'], mrp: 1299, price: 1039,
+    handle: 'sulphate-free-shampoo', title: 'Shampoo for Healthy Hair Growth', short: 'Sulphate Free Shampoo', sub: '8X advance care', size: '500 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['hair-fall'], mrp: 1299, price: 1299,
     desc: 'A hair care formula enriched with onion, rosemary, tea tree and keratin to support healthy-looking hair and strengthen it from root to tip.',
     helps: ['Nourishes the scalp', 'Strengthens the hair structure', 'Leaves hair smooth and frizz free', 'Gentle on coloured hair'],
     works: ['All hair types', 'Colour-treated hair'],
@@ -106,7 +106,7 @@ export const products = [
     free: [SUL, PAR, CRU, COL], routine: ['sulphate-free-shampoo', 'gleaming-hair-conditioner-250ml', 'hair-mask'],
   },
   {
-    handle: 'instaglow-facial-kit', title: 'Instaglow Facial Kit', sub: 'Five steps to glowing skin', size: '5-step kit', type: 'Facial Kit', cat: 'face-care', concerns: ['dull-tan'], mrp: 239, price: 239,
+    handle: 'instaglow-facial-kit', title: 'Instaglow Facial Kit', sub: 'Five steps to glowing skin', size: '5-step kit', type: 'Facial Kit', cat: 'face-care', concerns: ['dull-tan'], mrp: 299, price: 299,
     desc: 'A complete five-step facial at home: cleanse, exfoliate, massage, gel and pack. It leaves skin soft, supple and refreshed.',
     helps: ['Brightens the look of skin', 'Makes skin soft and supple', 'Gives a refreshing glow', 'Helps with the look of tan'],
     works: ['Dull or tanned skin', 'All skin types'],
@@ -115,7 +115,7 @@ export const products = [
     free: [PAR, DER],
   },
   {
-    handle: 'rose-mist', title: 'Rose Mist', sub: 'Refresh your skin with pure rose water', size: '100 ml', type: 'Face Mist', cat: 'face-care', concerns: ['dry-skin'], mrp: 120, price: 102,
+    handle: 'rose-mist', title: 'Rose Mist', sub: 'Refresh your skin with pure rose water', size: '100 ml', type: 'Face Mist', cat: 'face-care', concerns: ['dry-skin'], mrp: 120, price: 120,
     desc: 'Steam-distilled rose water that tones, soothes and hydrates. Use it as a toner, makeup setter or a quick refresh at any time.',
     helps: ['Tones and refreshes', 'Soothes and hydrates', 'Sets makeup', 'Quick refresh, anywhere'],
     works: ['All skin types', 'Daily use'],
@@ -124,7 +124,7 @@ export const products = [
     free: [PAR, ALC, CRU, DER],
   },
   {
-    handle: 'sunscreen-spf-50', title: 'Tinted Sunscreen SPF 50', short: 'Tinted Sunscreen SPF 50', sub: 'Broad spectrum UVA and UVB, no white cast', size: '100 ml', type: 'Sunscreen', cat: 'face-care', concerns: ['sun-care'], mrp: 669, price: 535, best: true,
+    handle: 'sunscreen-spf-50', title: 'Tinted Sunscreen SPF 50', short: 'Tinted Sunscreen SPF 50', sub: 'Broad spectrum UVA and UVB, no white cast', size: '100 ml', type: 'Sunscreen', cat: 'face-care', concerns: ['sun-care'], mrp: 799, price: 799, best: true,
     desc: 'A tinted, broad-spectrum sunscreen in a light gel. It protects from UVA and UVB rays with no white cast, while keeping skin hydrated and smooth.',
     helps: ['Broad-spectrum UVA and UVB protection', 'Light gel with no white cast', 'Water resistant', 'Helps prevent tanning and sunburn'],
     works: ['All skin types', 'Everyday use'],
@@ -142,7 +142,7 @@ export const products = [
     free: [PAR, SUL, CRU, DER], also: ['hydrating-face-wash-100ml'], routine: ['hydrating-face-cleanser-250ml', 'vitamin-c-face-serum', 'sunscreen-spf-50'],
   },
   {
-    handle: 'glycolic-salicylic-foaming-facewash', title: 'Glycolic & Salicylic Foaming Facewash', sub: 'Clear skin, daily care', size: '60 ml', type: 'Cleanser', cat: 'face-care', concerns: ['acne-oily'], mrp: 179, price: 152, best: true,
+    handle: 'glycolic-salicylic-foaming-facewash', title: 'Glycolic & Salicylic Foaming Facewash', sub: 'Clear skin, daily care', size: '60 ml', type: 'Cleanser', cat: 'face-care', concerns: ['acne-oily'], mrp: 179, price: 179, best: true,
     desc: 'Formulated with glycolic and salicylic acid to deeply cleanse, exfoliate and renew skin. It helps clear pores and reveal a smoother, brighter complexion.',
     helps: ['Deeply cleanses and purifies', 'Helps keep pores clear', 'Helps with blemish-prone skin', 'Gentle enough for daily use'],
     works: ['Oily skin', 'Acne-prone skin'],
@@ -160,7 +160,7 @@ export const products = [
     free: [PAR, SUL, CRU, DER], also: ['gleaming-hair-conditioner-200ml'], routine: ['hair-cleanser', 'gleaming-hair-conditioner-250ml', 'hair-mask'],
   },
   {
-    handle: 'conditioning-shampoo', title: 'Conditioning Shampoo', sub: '3X advance care', size: '500 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['hair-fall', 'frizz-damage'], mrp: 1299, price: 1039, est: true,
+    handle: 'conditioning-shampoo', title: 'Conditioning Shampoo', sub: '3X advance care', size: '500 ml', type: 'Shampoo', cat: 'hair-care', concerns: ['hair-fall', 'frizz-damage'], mrp: 999, price: 999,
     desc: 'A blend of onion, rosemary, tea tree and keratin to strengthen, nourish and revitalise hair from root to tip.',
     helps: ['Deeply nourishes and conditions', 'Reduces frizz and adds shine', 'Strengthens hair', 'Reduces the look of breakage'],
     works: ['Dry and damaged hair', 'Frizzy, unruly hair', 'Daily care'],
@@ -169,7 +169,7 @@ export const products = [
     free: [PAR, SUL, SIL, CRU], routine: ['conditioning-shampoo', 'gleaming-hair-conditioner-250ml', 'hair-mask'],
   },
   {
-    handle: 'cold-cream', title: 'Moisturizing Cold Cream', short: 'Cold Cream', sub: 'Cocoa butter, shea butter and almond oil', size: '50 gm', type: 'Moisturiser', cat: 'face-care', concerns: ['dry-skin'], mrp: 41, price: 41,
+    handle: 'cold-cream', title: 'Moisturizing Cold Cream', short: 'Cold Cream', sub: 'Cocoa butter, shea butter and almond oil', size: '50 gm', type: 'Moisturiser', cat: 'face-care', concerns: ['dry-skin'], mrp: 48, price: 48,
     desc: 'A rich, non-greasy formula that deeply moisturises and nourishes. It helps protect against dryness and leaves skin soft, smooth and radiant.',
     helps: ['Deep moisturisation', 'Nourishes and softens', 'Helps protect the skin barrier', 'Smooth, healthy glow'],
     works: ['All skin types', 'Dry-weather care'],
@@ -178,7 +178,7 @@ export const products = [
     free: [],
   },
   {
-    handle: 'hydrarevive-moisture-restore-lotion', title: 'HydraRevive Moisture Restore Lotion', short: 'HydraRevive Lotion', sub: 'Long-lasting hydration, never greasy', size: '100 ml', type: 'Moisturiser', cat: 'face-care', concerns: ['dry-skin'], mrp: 199, price: 159, est: true, best: true,
+    handle: 'hydrarevive-moisture-restore-lotion', title: 'HydraRevive Moisture Restore Lotion', short: 'HydraRevive Lotion', sub: 'Long-lasting hydration, never greasy', size: '100 ml', type: 'Moisturiser', cat: 'face-care', concerns: ['dry-skin'], mrp: 249, price: 249, best: true,
     desc: 'A non-greasy daily moisturiser with aloe vera, glycerin and vitamin E. It helps keep skin soft, supple and comfortable all day, on the face and body.',
     helps: ['Long-lasting hydration', 'Softens dry, rough patches', 'Comforts dry skin', 'Non-greasy, light finish'],
     works: ['Dry and normal skin', 'Face and body', 'Daily use'],
@@ -187,7 +187,7 @@ export const products = [
     free: [], routine: ['hydrating-face-cleanser-250ml', 'hydrarevive-moisture-restore-lotion', 'sunscreen-spf-50'],
   },
   {
-    handle: 'hydrating-face-wash-100ml', title: 'Hydrating Face Wash with OceanDerMX', short: 'Hydrating Face Wash', sub: 'Restore and protect', size: '100 ml + 25% extra', type: 'Cleanser', cat: 'face-care', concerns: ['dry-skin'], mrp: 190, price: 155,
+    handle: 'hydrating-face-wash-100ml', title: 'Hydrating Face Wash with OceanDerMX', short: 'Hydrating Face Wash', sub: 'Restore and protect', size: '100 ml + 25% extra', type: 'Cleanser', cat: 'face-care', concerns: ['dry-skin'], mrp: 249, price: 249,
     desc: 'A gentle yet effective cleanser enriched with OceanDerMX that deeply hydrates, restores and protects. It removes impurities without stripping natural moisture.',
     helps: ['Deeply cleanses', 'Helps restore the skin barrier', 'Provides intense hydration', 'Keeps skin soft'],
     works: ['All skin types'],
@@ -196,7 +196,7 @@ export const products = [
     free: [PAR, SIL, CRU], also: ['hydrating-face-cleanser-250ml'], routine: ['hydrating-face-wash-100ml', 'vitamin-c-face-serum', 'sunscreen-spf-50'],
   },
   {
-    handle: 'lavender-hand-wash', title: 'Lavender Hand Wash', sub: 'With aroma of royal flora lavender', size: '300 ml', type: 'Hand Wash', cat: 'body-hygiene', concerns: [], mrp: 119, price: 119, est: true, best: true,
+    handle: 'lavender-hand-wash', title: 'Lavender Hand Wash', sub: 'With aroma of royal flora lavender', size: '300 ml', type: 'Hand Wash', cat: 'body-hygiene', concerns: [], mrp: 199, price: 199, best: true,
     desc: 'A gentle, effective formula that cleanses hands and leaves them soft, refreshed and delicately fragranced with lavender.',
     helps: ['Removes dirt and oil', 'Leaves a calming lavender aroma', 'Keeps hands soft and smooth', 'Everyday hand hygiene'],
     works: ['All skin types', 'Daily hand cleansing'],
@@ -214,7 +214,7 @@ export const products = [
     free: [PAR, DER], routine: ['hydrating-face-cleanser-250ml', 'de-tan-face-pack', 'sunscreen-spf-50'],
   },
   {
-    handle: 'onion-hair-oil', title: 'Onion Hair Oil', sub: 'Nourish your hair the natural way', size: '100 ml', type: 'Hair Oil', cat: 'hair-care', concerns: ['hair-fall'], mrp: 199, price: 159, best: true,
+    handle: 'onion-hair-oil', title: 'Onion Hair Oil', sub: 'Nourish your hair the natural way', size: '100 ml', type: 'Hair Oil', cat: 'hair-care', concerns: ['hair-fall'], mrp: 199, price: 199, best: true,
     desc: 'A blend of onion extract and natural oils that helps strengthen hair from the roots and reduce hair fall from breakage, for healthy, long and shiny hair.',
     helps: ['Strengthens hair roots', 'Helps reduce hair fall from breakage', 'Improves the look of thickness', 'Adds shine and softness'],
     works: ['All hair types'],
@@ -223,7 +223,7 @@ export const products = [
     free: [PAR, MIN, SIL], routine: ['onion-hair-oil', 'sulphate-free-shampoo', 'gleaming-hair-conditioner-250ml'],
   },
   {
-    handle: 'hair-shampoo-oceandermx', title: 'Hair Shampoo with OceanDerMX', short: 'Hair Shampoo', sub: 'Clean, repair, strengthen', size: '100 ml + 25% extra', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 119, price: 119, est: true,
+    handle: 'hair-shampoo-oceandermx', title: 'Hair Shampoo with OceanDerMX', short: 'Hair Shampoo', sub: 'Clean, repair, strengthen', size: '100 ml + 25% extra', type: 'Shampoo', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 199, price: 199,
     desc: 'A plant-based shampoo enriched with OceanDerMX and natural ingredients that gently cleanses, repairs and protects hair from root to tip.',
     helps: ['Removes dirt, oil and build-up', 'Helps repair damaged hair', 'Protects and nourishes', 'Suitable for daily use'],
     works: ['All hair types'],
@@ -241,7 +241,7 @@ export const products = [
     free: [CRU], routine: ['gentle-cleansing-shampoo', 'cleansing-hair-conditioner-100ml', 'hair-mask'],
   },
   {
-    handle: 'herbal-toothpaste', title: 'Herbal Toothpaste', sub: 'Made from 9 traditional herbs', size: '100 gm', type: 'Toothpaste', cat: 'body-hygiene', concerns: [], mrp: 120, price: 102,
+    handle: 'herbal-toothpaste', title: 'Herbal Toothpaste', sub: 'Made from 9 traditional herbs', size: '100 gm', type: 'Toothpaste', cat: 'body-hygiene', concerns: [], mrp: 120, price: 120,
     desc: 'A blend of nine traditional herbs for complete oral care. It helps strengthen teeth, supports healthy gums and keeps your mouth fresh.',
     helps: ['Helps strengthen teeth', 'Supports healthy gums', 'Long-lasting freshness', 'Helps protect against plaque'],
     works: ['The whole family', 'Daily use'],
@@ -250,7 +250,7 @@ export const products = [
     free: ['No parabens', 'No SLS', 'No artificial colours'],
   },
   {
-    handle: 'aloe-vera-gel', title: 'Aloe Vera Gel', sub: 'Soothe and hydrate', size: '100 gm', type: 'Moisturiser', cat: 'face-care', concerns: ['dry-skin', 'sun-care'], mrp: 149, price: 119, best: true,
+    handle: 'aloe-vera-gel', title: 'Aloe Vera Gel', sub: 'Soothe and hydrate', size: '100 gm', type: 'Moisturiser', cat: 'face-care', concerns: ['dry-skin', 'sun-care'], mrp: 149, price: 149, best: true,
     desc: 'A light, cooling gel enriched with the goodness of aloe vera. It soothes sun-exposed skin and nourishes, leaving skin cool, calm and refreshed.',
     helps: ['Cools and calms sun-exposed skin', 'Hydrates and keeps skin soft', 'Soothes after shaving or waxing', 'Non-greasy and lightweight'],
     works: ['All skin types', 'Dry and dehydrated skin'],
@@ -259,7 +259,7 @@ export const products = [
     free: [PAR, SUL, CRU, DER],
   },
   {
-    handle: 'intimate-foaming-cleanser-5-berry', title: 'Intimate Foaming Cleanser 5 Berry', short: 'Intimate Foam 5 Berry', sub: 'Gentle care, daily confidence', size: '100 ml', type: 'Intimate Wash', cat: 'body-hygiene', concerns: [], mrp: 449, price: 360,
+    handle: 'intimate-foaming-cleanser-5-berry', title: 'Intimate Foaming Cleanser 5 Berry', short: 'Intimate Foam 5 Berry', sub: 'Gentle care, daily confidence', size: '100 ml', type: 'Intimate Wash', cat: 'body-hygiene', concerns: [], mrp: 449, price: 449,
     desc: 'A pH-balanced foaming cleanser designed for the delicate intimate area. Enriched with five berries, it helps cleanse, hydrate and maintain natural freshness.',
     helps: ['pH 3.5 balanced', 'Gently cleanses and refreshes', 'Helps maintain natural moisture', 'Safe for daily use'],
     works: ['All skin types', 'Daily use', 'For external use only'],
@@ -268,7 +268,7 @@ export const products = [
     free: [PAR, SOAP, DER, 'SLS / SLES free'], also: ['intimate-gentle-cleanser'],
   },
   {
-    handle: 'gleaming-hair-conditioner-200ml', title: 'Gleaming Hair Conditioner Pump', short: 'Gleaming Conditioner Pump', sub: 'For dry and damaged hair', size: '200 ml', type: 'Conditioner', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 769, price: 615,
+    handle: 'gleaming-hair-conditioner-200ml', title: 'Gleaming Hair Conditioner Pump', short: 'Gleaming Conditioner Pump', sub: 'For dry and damaged hair', size: '200 ml', type: 'Conditioner', cat: 'hair-care', concerns: ['frizz-damage'], mrp: 769, price: 769,
     desc: 'A nourishing formula designed to restore moisture, improve manageability and enhance natural shine, while helping protect against damage.',
     helps: ['Nourishes dry, damaged hair', 'Improves texture and manageability', 'Adds natural shine and softness', 'Helps reduce breakage'],
     works: ['Dry and damaged hair'],
@@ -277,7 +277,7 @@ export const products = [
     free: [SUL, PAR, CRU], also: ['gleaming-hair-conditioner-250ml'], routine: ['hair-cleanser', 'gleaming-hair-conditioner-200ml', 'hair-mask'],
   },
   {
-    handle: 'glutathione-foaming-facewash', title: 'Glutathione Foaming Facewash', sub: 'Cleanse, refresh, glow', size: '100 ml', type: 'Cleanser', cat: 'face-care', concerns: ['dull-tan', 'acne-oily'], mrp: 349, price: 280, est: true,
+    handle: 'glutathione-foaming-facewash', title: 'Glutathione Foaming Facewash', sub: 'Cleanse, refresh, glow', size: '100 ml', type: 'Cleanser', cat: 'face-care', concerns: ['dull-tan', 'acne-oily'], mrp: 699, price: 699,
     desc: 'With the power of glutathione and vitamin C for cleaner, brighter and healthier-looking skin.',
     helps: ['Removes dirt and impurities', 'Hydrates and moisturises', 'Helps control excess oil', 'Brightens the look of skin'],
     works: ['All skin types'],
@@ -286,7 +286,7 @@ export const products = [
     free: [SUL, CRU, PAR], routine: ['glutathione-foaming-facewash', 'vitamin-c-face-serum', 'sunscreen-spf-50'],
   },
   {
-    handle: 'vitamin-c-face-serum', title: 'Vitamin C Face Serum', sub: 'Vitamin C 10% + Niacinamide 2%', size: '30 ml', type: 'Serum', cat: 'face-care', concerns: ['dull-tan'], mrp: 699, price: 559, est: true, best: true,
+    handle: 'vitamin-c-face-serum', title: 'Vitamin C Face Serum', sub: 'Vitamin C 10% + Niacinamide 2%', size: '30 ml', type: 'Serum', cat: 'face-care', concerns: ['dull-tan'], mrp: 999, price: 999, best: true,
     desc: 'A brightening and anti-aging serum for brighter, smoother and younger-looking skin, with hyaluronic acid to hydrate and plump.',
     helps: ['Brightens the complexion', 'Helps with signs of aging', 'Repairs and protects', 'Improves skin elasticity'],
     works: ['All skin types'],
@@ -295,7 +295,7 @@ export const products = [
     free: [], routine: ['hydrating-face-cleanser-250ml', 'vitamin-c-face-serum', 'sunscreen-spf-50'],
   },
   {
-    handle: 'professional-hair-mask', title: 'Professional Hair Mask', sub: 'Hydrolyzed keratin, rosemary and argan oil', size: '280 gm', type: 'Hair Mask', cat: 'hair-care', pro: true, concerns: ['frizz-damage'], mrp: 1099, price: 879, est: true,
+    handle: 'professional-hair-mask', title: 'Professional Hair Mask', sub: 'Hydrolyzed keratin, rosemary and argan oil', size: '280 gm', type: 'Hair Mask', cat: 'hair-care', pro: true, concerns: ['frizz-damage'], mrp: 1599, price: 1599,
     desc: 'Deep nourishment for healthier, stronger hair. Enriched with hydrolyzed keratin, rosemary oil and argan oil to repair, restore and rejuvenate.',
     helps: ['Keeps hair smooth and manageable', 'Adds natural luster', 'Locks in moisture', 'Reduces the look of breakage'],
     works: ['All hair types', 'Salon and home use'],
@@ -304,7 +304,7 @@ export const products = [
     free: [], routine: ['professional-shampoo', 'gleaming-hair-conditioner-250ml', 'professional-hair-mask'],
   },
   {
-    handle: 'professional-shampoo', title: 'Professional Shampoo', sub: 'Onion, rosemary oil and keratin', size: 'Size on pack', type: 'Shampoo', cat: 'hair-care', pro: true, concerns: ['hair-fall'], mrp: 1299, price: 1039, est: true,
+    handle: 'professional-shampoo', title: 'Professional Shampoo', sub: 'Onion, rosemary oil and keratin', size: '380 ml', type: 'Shampoo', cat: 'hair-care', pro: true, concerns: ['hair-fall'], mrp: 1169, price: 1169,
     desc: 'Stronger, healthier, shinier-looking hair. Enriched with onion, rosemary oil, keratin and tea tree. Colour safe and sulphate free.',
     helps: ['Nourishes roots', 'Helps reduce hair fall from breakage', 'Adds shine and softness', 'Long-lasting colour care'],
     works: ['All hair types', 'Salon and home use'],
@@ -313,7 +313,7 @@ export const products = [
     free: [SUL, COL], routine: ['professional-shampoo', 'gleaming-hair-conditioner-250ml', 'professional-hair-mask'],
   },
   {
-    handle: 'intimate-gentle-cleanser', title: 'Intimate Gentle Cleanser', sub: 'With tea tree and sea buckthorn oil', size: '100 ml', type: 'Intimate Wash', cat: 'body-hygiene', concerns: [], mrp: 155, price: 124, best: true,
+    handle: 'intimate-gentle-cleanser', title: 'Intimate Gentle Cleanser', sub: 'With tea tree and sea buckthorn oil', size: '100 ml', type: 'Intimate Wash', cat: 'body-hygiene', concerns: [], mrp: 155, price: 155, best: true,
     desc: 'Specially formulated for your intimate hygiene with the goodness of nature. It removes impurities without dryness.',
     helps: ['pH 3.5 balanced', 'Gentle cleansing without dryness', 'Keeps you fresh all day', 'Supports natural balance'],
     works: ['Daily use', 'For external use only'],
